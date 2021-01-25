@@ -1,0 +1,3 @@
+[submodule "RibbonWinForms"]
+	path = RibbonWinForms
+	url = https://github.com/netkawai/RibbonWinForms

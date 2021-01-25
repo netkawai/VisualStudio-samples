@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetafileFormApp", "MetafileFormApp\MetafileFormApp.csproj", "{DC7ED44F-20D1-4D63-B963-A99554D4B4D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaWpfApp", "MetaWpfApp\MetaWpfApp.csproj", "{647B9E5C-5842-4417-B67B-6304ABAC3E44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC7ED44F-20D1-4D63-B963-A99554D4B4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7ED44F-20D1-4D63-B963-A99554D4B4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7ED44F-20D1-4D63-B963-A99554D4B4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7ED44F-20D1-4D63-B963-A99554D4B4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{647B9E5C-5842-4417-B67B-6304ABAC3E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{647B9E5C-5842-4417-B67B-6304ABAC3E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{647B9E5C-5842-4417-B67B-6304ABAC3E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{647B9E5C-5842-4417-B67B-6304ABAC3E44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {675B46E7-E2E3-4718-9F35-E10DFEBFD53D}
+	EndGlobalSection
+EndGlobal

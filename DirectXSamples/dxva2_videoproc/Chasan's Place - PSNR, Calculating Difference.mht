@@ -1,0 +1,3192 @@
+From: "Saved by Windows Internet Explorer 8"
+Subject: Chasan's Place - PSNR, Calculating Difference
+Date: Sun, 28 Feb 2010 21:09:47 +0900
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CAB8BA.5BBC37D0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7600.16385
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.chasanc.com/index.php/Coding/PSNR-Calculating-Difference.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>Chasan's Place =
+- PSNR, Calculating Difference</TITLE>
+<META name=3Dtitle content=3D"PSNR, Calculating Difference">
+<META name=3Dauthor content=3D"Chasan Chouse">
+<META name=3Ddescription content=3D"Chasan Chouse's Home Page">
+<META name=3Dkeywords=20
+content=3D"Computer, algorithms, applications of algorithms, =
+cryptography, noble prime numbers, prime numbers, sort algorithms, =
+number theory, compiler design, file systems, eleco 2002, siu2003, =
+linked list, binary tree, huffman coding">
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7600.16490">
+<META name=3Drobots content=3D"index, follow"><LINK rel=3D"shortcut =
+icon"=20
+href=3D"http://www.chasanc.com/images/favicon.ico">
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type>
+<META name=3Dverify-v1 =
+content=3DD3PKCjMpUWTd1aIHx1d5u+twuZbGnv4+2fnHZZfsHLo=3D><LINK=20
+title=3DRSS rel=3Dalternate type=3Dapplication/rss+xml=20
+href=3D"http://www.chasanc.com/index.php?option=3Dcom_rss&amp;feed=3DRSS2=
+.0&amp;no_html=3D1"><LINK=20
+rel=3Dstylesheet type=3Dtext/css=20
+href=3D"http://www.chasanc.com/templates/rt_mobius/css/template_css.css">=
+<LINK=20
+rel=3Dstylesheet type=3Dtext/css=20
+href=3D"http://www.chasanc.com/templates/rt_mobius/css/suckerfish.css"><L=
+INK=20
+rel=3Dstylesheet type=3Dtext/css=20
+href=3D"http://www.chasanc.com/templates/rt_mobius/css/style1.css"><!--[i=
+f lte IE 6]>=0A=
+<link =
+href=3D"http://www.chasanc.com/templates/rt_mobius/css/template_ie.css" =
+rel=3D"stylesheet" type=3D"text/css" />=0A=
+<![endif]--><LINK=20
+rel=3D"shortcut icon" =
+href=3D"http://www.chasanc.com/images/favicon.ico">
+<SCRIPT type=3Dtext/javascript=20
+src=3D"http://www.chasanc.com/templates/rt_mobius/js/handleSearchfield.js=
+"></SCRIPT>
+</HEAD>
+<BODY class=3D"w-thin f-default">
+<DIV class=3Dwrapper>
+<DIV id=3Dheader>
+<DIV id=3Dheader2><A title=3D"" href=3D"http://www.chasanc.com/"><SPAN=20
+id=3Dlogo>&nbsp;</SPAN></A>=20
+<DIV id=3Dsearchbox>
+<FORM id=3Dsearchform method=3Dpost action=3Dindex.php><INPUT=20
+onblur=3D"if(this.value=3D=3D'') this.value=3D'search...';" id=3Ds=20
+onfocus=3D"if(this.value=3D=3D'search...') this.value=3D'';" =
+value=3Dsearch... alt=3Dsearch=20
+name=3Dsearchword> <INPUT value=3Dsearch type=3Dhidden name=3Doption> =
+</FORM></DIV>
+<DIV id=3Dtop></DIV></DIV></DIV>
+<TABLE id=3Dmaintable class=3Dcontroller cellSpacing=3D0 =
+cellPadding=3D0>
+  <TBODY>
+  <TR vAlign=3Dtop>
+    <TD class=3Dmain>
+      <DIV id=3Dvtop></DIV><!--          <div id=3D"render">=0A=
+                      </div> -->
+      <DIV id=3Dhorizmenu>
+      <DIV id=3Dnav>
+      <SCRIPT type=3Dtext/javascript>=0A=
+<!--//--><![CDATA[//><!--=0A=
+=0A=
+sfHover =3D function() {=0A=
+	var sfEls =3D document.getElementById("nav").getElementsByTagName("LI");=0A=
+	for (var i=3D0; i<sfEls.length; i++) {=0A=
+		sfEls[i].onmouseover=3Dfunction() {=0A=
+			this.className+=3D" sfhover";=0A=
+		}=0A=
+		sfEls[i].onmouseout=3Dfunction() {=0A=
+			this.className=3Dthis.className.replace(new RegExp(" sfhover\\b"), =
+"");=0A=
+		}=0A=
+	}=0A=
+}=0A=
+if (window.attachEvent) window.attachEvent("onload", sfHover);=0A=
+=0A=
+//--><!]]>=0A=
+</SCRIPT>
+
+      <UL>
+        <LI><A href=3D"http://www.chasanc.com/">Home</A></LI>
+        <LI class=3Dactive><A class=3Dtopdaddy=20
+        href=3D"http://www.chasanc.com/index.php/Studies/">Studies</A>
+        <UL>
+          <LI><A=20
+          =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Algorithm-Definitions=
+.html">Algorithm=20
+          Definitions</A></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Compiler/">Compiler</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Compiler/Lexical-Analysis-in-Com=
+piler-Design.html">Lexical=20
+            Analysis in Compiler Design</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Compiler/Infix-to-Postfix-Conver=
+sion-and-Execution.html">Infix=20
+            to Postfix Conversion &amp; Execution</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Compiler/Backus-Naur-Form-BNF-of=
+-Pascal-Language.html">Pascal's=20
+            Backus Naur Form (BNF)</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Compiler/Shift-Right-Finite-Stat=
+e-MachineFSM.html">Shift-Right=20
+            Finite State Machine(FSM)</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Compiler/Multiplication-by-Shift=
+.html">Multiplication=20
+            by Shift</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Algorithms/">Algorithms</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Algorithm-Optimizatio=
+n-is-Important.html">Importance=20
+            of Optimization</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Huffman-Coding-Basic-=
+Implementation.html">Huffman=20
+            Coding</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Advertisement-Problem=
+.html">Advertisement=20
+            Problem</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Hashing-Functions.htm=
+l">Hashing=20
+            Functions</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Convex-Hole.html">Con=
+vex=20
+            Hole</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Composition-Between-R=
+elational-Structures.html">Relational=20
+            Composition</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Huffman-Coding-Basic-=
+Implementation.html">Huffman=20
+            Coding</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Erasing-a-Leaf-from-a=
+-Binary-Tree.html">Binary=20
+            Tree, Erase a Leaf</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Graph-Coloring.html">=
+Graph=20
+            Coloring</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Magic-Squares.html">M=
+agic=20
+            Squares</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Minimum-Spanning-Tree=
+.html">Minimum=20
+            Spanning Tree</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Finding-Root-of-a-Pol=
+inomial.html">Finding=20
+            Root of a Polinomial</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Linked-List-Construct=
+ion.html">Linked=20
+            List: Construction</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Linked-List-Binary-Se=
+arch.html">Linked=20
+            List: Binary Search</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Algorithms/Linked-List-Differenc=
+e-between-Linear-and-Binary-Search.html">Linked=20
+            List: Linear &amp; Binary Seach Diff.</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Artificial-Intelligence/">Artifi=
+cial=20
+          Intelligence</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Artificial-Intelligence/8-Queens=
+.html">8=20
+            Queens</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Artificial-Intelligence/Finding-=
+Family-Groups-by-Fuzzy-Composition.html">Fuzzy=20
+            Composition</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Artificial-Intelligence/Mousetra=
+p-in-a-Labyrinth.html">Mousetrap=20
+            in a Labyrinth</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Cryptography/">Cryprography</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Projects/Robust-Sound-Encryption=
+.html">Robust=20
+            Sound Encryption</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Cryptography/Audio-Encryption-Us=
+ing-Noble-Prime-Numbers-NPN.html">Audio=20
+            Encryption Using NPN</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Cryptography/Playfair-File-Encry=
+ption.html">Playfair=20
+            File Encryption</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Cryptography/RSA-Basic-Text-Encr=
+yption.html">RSA=20
+            Basic Text Encryption</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Cryptography/Knap-Sack-Encryptio=
+n.html">Knap-Sack=20
+            File Encryption</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Cryptography/File-Encryption-Usi=
+ng-Catalan-Numbers-and-Stack-Permutation.html">Catalan=20
+            File Encryption</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Cryptography/Difference-between-=
+RSA-Playfair-and-Noble-Prime-in-Audio-File-Encryption.html">Perf.=20
+            Dif. on Audio File Encryptions</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/">Image=20
+          Processing</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Connected-Compo=
+nent-Labeling.html">Conn.=20
+            Component Labeling</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Histogram-Equal=
+ization-HE.html">Histogram=20
+            Equalization</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/K-Means-Quantiz=
+ation.html">K-Means=20
+            Quantization</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Brightness-and-=
+Normalization.html">Brightness=20
+            &amp; Normalization</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Image-Rotation.=
+html">Image=20
+            Rotation</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Skeletonizing.h=
+tml">Skeletonizing</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Skin-Color-Dete=
+ction-with-HSV-Lookup.html">Skin=20
+            Color Detection</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Image-Processing/Test-Images.htm=
+l">Test=20
+            Images</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          href=3D"http://www.chasanc.com/index.php/File-Systems/">File =
+Systems</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/File-Systems/Implementing-Two-Wa=
+y-Merge-Using-Heap-Sort.html">Heap=20
+            Sort &amp; Two Way Merge</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Number-Theory/">Number=20
+          Theory</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Number-Theory/Prime-Numbers-How-=
+to-Calculate.html">Prime=20
+            Numbers</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Number-Theory/Noble-Prime-Number=
+s-Asil-Asal-Sayilar.html">Noble=20
+            Prime Numbers</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Number-Theory/Visualization-of-N=
+oble-Prime-Numbers.html">Drawing=20
+            of Noble Prime Numbers</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Number-Theory/Perfect-Numbers.ht=
+ml">Perfect=20
+            Numbers</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Operating-Systems/">Operating=20
+          Systems</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Operating-Systems/Critical-Secti=
+on-for-n-Processes.html">Critical=20
+            Section</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Operating-Systems/Dinning-Philos=
+ophers.html">Dinning=20
+            Philosophers</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Operating-Systems/Process-Schedu=
+ling.html">Process=20
+            Scheduling</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Operating-Systems/Readers-Writer=
+s-Problem-Priority-over-Writers.html">Readers=20
+            &amp; Writers Problem</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Sort-Algorithms/">Sort=20
+          Algorithms</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Sort-Algorithms/Radix-Sort.html"=
+>Radix=20
+            Sort</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Sort-Algorithms/Heap-Sort.html">=
+Heap=20
+            Sort</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Sort-Algorithms/Exchange-Sort-an=
+d-Quick-Sort-Performance-Comparison.html">Exchange=20
+            Sort &amp; Quick Sort</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          href=3D"http://www.chasanc.com/index.php/Coding/">Coding</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/Multi-Dimensional-Dynamic=
+-Memory-Allocation-in-C.html">Dynamic=20
+            Memory Allocation</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/YUV-to-RGBConversion.html=
+">YUV=20
+            to RGBConversion</A></LI>
+            <LI class=3Dactive><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/PSNR-Calculating-Differen=
+ce.html">PSNR=20
+            Calculating Difference</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/YUV-Formats.html">YUV=20
+            Formats</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/CIF-Video-Format.html">CI=
+F=20
+            Video Format</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/PGM-Image-Format.html">PG=
+M=20
+            Image Format</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Coding/Bitmap-Image-Format.html"=
+>Bitmap=20
+            Image Format</A></LI></UL></LI></UL></LI>
+        <LI><A class=3Dtopdaddy=20
+        href=3D"http://www.chasanc.com/index.php/Projects/">Projects</A>
+        <UL>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Projects/HaYDWT-a-Video-Watermar=
+king-Software.html">HaYDWT,Video=20
+          Watermark</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Source-Code/HaYDWT-Source-Code-D=
+ocumentation.html">Source=20
+            Code Docs</A></LI>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Source-Code/HaYDWT-Help.html">Ha=
+YDWT=20
+            Help</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Projects/-XVC-Video-Compression.=
+html">XVC=20
+          Video Compression</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Source-Code/XVC-Video-Compressio=
+n-Code-Docs.html">Source=20
+            Code Docs</A></LI></UL></LI>
+          <LI><A=20
+          =
+href=3D"http://www.chasanc.com/index.php/Source-Code/ImgProc-Documentatio=
+n.html">ImgProc=20
+          Image Manip. Tool</A></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Projects/Robust-Digital-Image-Wa=
+termarking.html">Digital=20
+          Image Watermark</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Source-Code/Robust-Image-Waterma=
+rking-Code-Docs.html">Code=20
+            Documentation</A></LI></UL></LI>
+          <LI><A class=3Ddaddy=20
+          =
+href=3D"http://www.chasanc.com/index.php/Projects/Robust-Sound-Encryption=
+.html">Robust=20
+          Sound Encryption</A>
+          <UL>
+            <LI><A=20
+            =
+href=3D"http://www.chasanc.com/index.php/Source-Code/iASWave-Encryption-D=
+ocumentation.html">iASWave=20
+            Documentation</A></LI></UL></LI>
+          <LI><A=20
+          =
+href=3D"http://www.chasanc.com/index.php/Projects/MPx-Informer-and-TAG-Ed=
+itor.html">MPx=20
+          Informer and TAG Editor</A></LI>
+          <LI><A =
+href=3D"http://www.chasanc.com/index.php/Source-Code/">Source=20
+          Code</A></LI></UL></LI>
+        <LI><A class=3Dtopdaddy=20
+        =
+href=3D"http://www.chasanc.com/index.php/Publications/">Publications</A>
+        <UL>
+          <LI><A=20
+          =
+href=3D"http://www.chasanc.com/index.php/Publications/A-Wavelet-Based-Vid=
+eo-Watermarking.html">A=20
+          Wavelet-Based Video Watermarking</A></LI>
+          <LI><A=20
+          =
+href=3D"http://www.chasanc.com/index.php/Publications/Circularly-Symmetri=
+c-Color-Image-Watermarking.html">Circularly=20
+          Symmetric Color Image Watermarking</A></LI>
+          <LI><A=20
+          =
+href=3D"http://www.chasanc.com/index.php/Publications/Robust-Digital-Imag=
+e-Watermarking.html">Dayanikli=20
+          Sayisal Resim Damgalama</A></LI></UL></LI>
+        <LI><A=20
+        =
+href=3D"http://www.chasanc.com/index.php/Resume.html">Resume</A></LI>
+        <LI><A=20
+        =
+href=3D"http://www.chasanc.com/index.php/component/option,com_easygb/Item=
+id,31/">Guestbook</A></LI>
+        <LI><A=20
+        =
+href=3D"http://www.chasanc.com/index.php/component/option,com_dfcontact/I=
+temid,56/">Contact=20
+        Me</A></LI></UL></DIV></DIV>
+      <DIV id=3Dmainbody><SPAN class=3Dpathway><A class=3Dpathway=20
+      href=3D"http://www.chasanc.com/">Home</A> <IMG alt=3Darrow=20
+      src=3D"http://www.chasanc.com/images/M_images/arrow.png"> <A =
+class=3Dpathway=20
+      href=3D"http://www.chasanc.com/index.php/Studies/">Studies</A> =
+<IMG=20
+      alt=3Darrow =
+src=3D"http://www.chasanc.com/images/M_images/arrow.png"> <A=20
+      class=3Dpathway =
+href=3D"http://www.chasanc.com/index.php/Coding/">Coding</A>=20
+      <IMG alt=3Darrow =
+src=3D"http://www.chasanc.com/images/M_images/arrow.png">=20
+      PSNR Calculating Difference </SPAN>
+      <TABLE class=3Dcontroller cellSpacing=3D0 cellPadding=3D0>
+        <TBODY>
+        <TR vAlign=3Dtop>
+          <TD>
+            <DIV class=3Dpadding>
+            <TABLE class=3Dcontentpaneopen>
+              <TBODY>
+              <TR>
+                <TD class=3Dcontentheading width=3D"100%">PSNR, =
+Calculating=20
+                  Difference </TD>
+                <TD class=3Dbuttonheading width=3D"100%" =
+align=3Dright><A title=3DPDF=20
+                  =
+onclick=3D"window.open('http://www.chasanc.com/index2.php?option=3Dcom_co=
+ntent&amp;do_pdf=3D1&amp;id=3D55','win2','status=3Dno,toolbar=3Dno,scroll=
+bars=3Dyes,titlebar=3Dno,menubar=3Dno,resizable=3Dyes,width=3D640,height=3D=
+480,directories=3Dno,location=3Dno'); return false;"=20
+                  =
+href=3D"http://www.chasanc.com/index2.php?option=3Dcom_content&amp;do_pdf=
+=3D1&amp;id=3D55"=20
+                  target=3D_blank><IMG border=3D0 name=3DPDF alt=3DPDF =
+align=3Dmiddle=20
+                  =
+src=3D"http://www.chasanc.com/templates/rt_mobius/images/pdf_button.png">=
+</A>=20
+                </TD>
+                <TD class=3Dbuttonheading width=3D"100%" =
+align=3Dright><A=20
+                  title=3DPrint=20
+                  =
+onclick=3D"window.open('http://www.chasanc.com/index2.php?option=3Dcom_co=
+ntent&amp;task=3Dview&amp;id=3D55&amp;pop=3D1&amp;page=3D0&amp;Itemid=3D8=
+9','win2','status=3Dno,toolbar=3Dno,scrollbars=3Dyes,titlebar=3Dno,menuba=
+r=3Dno,resizable=3Dyes,width=3D640,height=3D480,directories=3Dno,location=
+=3Dno'); return false;"=20
+                  =
+href=3D"http://www.chasanc.com/index2.php?option=3Dcom_content&amp;task=3D=
+view&amp;id=3D55&amp;pop=3D1&amp;page=3D0&amp;Itemid=3D89"=20
+                  target=3D_blank><IMG border=3D0 name=3DPrint =
+alt=3DPrint align=3Dmiddle=20
+                  =
+src=3D"http://www.chasanc.com/templates/rt_mobius/images/printButton.png"=
+></A>=20
+                </TD></TR></TBODY></TABLE>
+            <TABLE class=3Dcontentpaneopen>
+              <TBODY>
+              <TR>
+                <TD vAlign=3Dtop colSpan=3D2><BR>
+                  <P><FONT size=3D2 face=3DArial>Peak Signal to Noise =
+Ratio (PSNR)=20
+                  is generally used to analyze quality of image, sound =
+and video=20
+                  files in dB (decibels). PSNR calculation of two =
+images, one=20
+                  original and an altered image, describes how far two =
+images=20
+                  are equal. Figure 1 shows the famous formula.=20
+                  <BR>&nbsp;</FONT></P>
+                  <P><FONT size=3D2=20
+                  =
+face=3DArial>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  MSE: Mean-Square=20
+                  =
+error.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;=20
+                  x: width of=20
+                  =
+image.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;=20
+                  y:=20
+                  =
+height.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  x*y: number of pixels (or quantities).</FONT></P>
+                  <P align=3Dcenter><IMG border=3D0=20
+                  =
+src=3D"http://www.chasanc.com/images/img_formats/psnr_formula.gif"=20
+                  width=3D284 height=3D210><BR><FONT size=3D2 =
+face=3DArial>Figure 1.=20
+                  PSNR formula.</FONT></P>
+                  <P>&nbsp;</P>
+                  <P><B><FONT size=3D2 face=3DArial>PSNR of Matrices in=20
+                  C</FONT></B></P>
+                  <P=20
+                  style=3D"TEXT-ALIGN: left; MARGIN-TOP: 0pt; =
+MARGIN-BOTTOM: 0pt"=20
+                  align=3Dcenter>&nbsp;</P>
+                  <P=20
+                  style=3D"TEXT-ALIGN: left; MARGIN-TOP: 0pt; =
+MARGIN-BOTTOM: 0pt"=20
+                  align=3Dcenter><FONT color=3D#808080 size=3D2=20
+                  face=3D"Courier New"><I>/*</I></FONT></P>
+                  <P=20
+                  style=3D"TEXT-ALIGN: left; MARGIN-TOP: 0pt; =
+MARGIN-BOTTOM: 0pt"=20
+                  align=3Dcenter><I><FONT color=3D#808080 size=3D2=20
+                  face=3D"Courier New">&nbsp;*&nbsp;&nbsp; Give a =
+reference to=20
+                  this site if you like to use this code.</FONT></I></P>
+                  <P=20
+                  style=3D"TEXT-ALIGN: left; MARGIN-TOP: 0pt; =
+MARGIN-BOTTOM: 0pt"=20
+                  align=3Dcenter><I><FONT color=3D#808080 size=3D2=20
+                  face=3D"Courier New">&nbsp;*</FONT></I><FONT =
+color=3D#000000=20
+                  size=3D2 face=3D"Courier New"><FONT=20
+                  =
+color=3D#808080><I><BR>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+Written&nbsp;by&nbsp;Chasan&nbsp;Chouse,&nbsp;2004</I></FONT>=20
+                  <FONT =
+color=3D#808080><I><BR>&nbsp;*/</I></FONT></FONT></P>
+                  <P><FONT color=3D#000000 size=3D2 face=3D"Courier =
+New"><FONT size=3D2=20
+                  face=3D"Courier New"><B><FONT=20
+                  color=3D#000080>double</FONT></B></FONT><FONT=20
+                  =
+color=3D#000000>&nbsp;PSNR_Matrix(&nbsp;UCHAR&nbsp;**img1_data,&nbsp;</FO=
+NT><I><FONT=20
+                  =
+color=3D#808080>//&nbsp;changed&nbsp;image</FONT></I><BR>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UCHAR&nbsp;**img2_data,&nbsp;<I><FONT=20
+                  =
+color=3D#808080>//&nbsp;original&nbsp;image</FONT></I><BR>&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>long</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;width,</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>long</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;height)</FONT><BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><=
+FONT=20
+                  color=3D#000080>long</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;i,&nbsp;j;</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><FO=
+NT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;error,&nbsp;pix,&nbsp;x,&nbsp;psnr;<BR></FONT><BR>&=
+nbsp;&nbsp;&nbsp;&nbsp;<I><FONT=20
+                  =
+color=3D#808080>/*&nbsp;calculating&nbsp;distortion&nbsp;*/</FONT></I><BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;error&nbsp;=3D&nbsp;<FONT=20
+                  color=3D#008000>0.0</FONT><FONT=20
+                  =
+color=3D#000000>;</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;pix&nbsp;=3D&nbsp;(<B=
+><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  color=3D#000000>)width*(</FONT><B><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>)height;</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>for</FONT></B><FONT=20
+                  color=3D#000000>(i=3D</FONT><FONT =
+color=3D#008000>0</FONT><FONT=20
+                  =
+color=3D#000000>;i&lt;height;i++)</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;{<BR>=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>for</FONT></B><FONT=20
+                  color=3D#000000>(j=3D</FONT><FONT =
+color=3D#008000>0</FONT><FONT=20
+                  =
+color=3D#000000>;j&lt;width;j++)</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;x&nbsp;=3D&nbsp;(<B><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>)img1_data[i][j]&nbsp;-&nbsp;(</FONT><B><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>)img2_data[i][j];</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error&nbsp;+=3D&nbsp;((x&nbsp;=
+*&nbsp;x)&nbsp;/&nbsp;pix);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;psnr&nbsp=
+;=3D&nbsp;<FONT=20
+                  color=3D#008000>10.0</FONT><FONT=20
+                  color=3D#000000>&nbsp;*&nbsp;log10((</FONT><FONT=20
+                  color=3D#008000>255.0</FONT><FONT =
+color=3D#000000>*</FONT><FONT=20
+                  color=3D#008000>255.0</FONT><FONT=20
+                  =
+color=3D#000000>)/error);<BR></FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT =
+
+                  color=3D#000080>return</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;(psnr);</FONT><BR>}<BR>&nbsp;</FONT></P>
+                  <P><B><FONT size=3D2 face=3DArial>PSNR of Any Two Same =
+Sized=20
+                  File</FONT></B></P>
+                  <P><FONT color=3D#000000 size=3D2 face=3D"Courier =
+New"><FONT size=3D2=20
+                  face=3D"Courier New"><I><FONT=20
+                  =
+color=3D#808080>/***************************************/</FONT></I></FON=
+T><BR><FONT=20
+                  size=3D2 face=3D"Courier New"><I><FONT=20
+                  =
+color=3D#808080>/*&nbsp;&nbsp;FILE&nbsp;SIZE&nbsp;OF&nbsp;A&nbsp;GIVEN&nb=
+sp;STREAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</FONT></I></F=
+ONT><BR><FONT=20
+                  size=3D2 face=3D"Courier New"><I><FONT=20
+                  =
+color=3D#808080>/***************************************/</FONT></I></FON=
+T><BR><FONT=20
+                  size=3D2 face=3D"Courier New"><B><FONT=20
+                  color=3D#000080>long</FONT></B></FONT><FONT=20
+                  =
+color=3D#000000>&nbsp;filesize(FILE&nbsp;*stream)</FONT><BR>{<BR>&nbsp;&n=
+bsp;&nbsp;<B><FONT=20
+                  color=3D#000080>long</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;curpos,&nbsp;length;<BR></FONT><BR>&nbsp;&nbsp;&nbs=
+p;curpos&nbsp;=3D&nbsp;ftell(stream);<BR>&nbsp;&nbsp;&nbsp;fseek(stream,&=
+nbsp;<FONT=20
+                  color=3D#008000>0L</FONT><FONT=20
+                  =
+color=3D#000000>,&nbsp;SEEK_END);</FONT><BR>&nbsp;&nbsp;&nbsp;length&nbsp=
+;=3D&nbsp;ftell(stream);<BR>&nbsp;&nbsp;&nbsp;fseek(stream,&nbsp;curpos,&=
+nbsp;SEEK_SET);<BR>&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>return</FONT></B><FONT=20
+                  color=3D#000000>&nbsp;length;</FONT><BR>}</FONT></P>
+                  <P><FONT color=3D#000000 size=3D2 face=3D"Courier =
+New"><FONT size=3D2=20
+                  face=3D"Courier New"><B><FONT=20
+                  color=3D#000080>double</FONT></B></FONT><FONT=20
+                  color=3D#000000>&nbsp;PSNR_AnyFile(</FONT><B><FONT=20
+                  color=3D#000080>char</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;FileName1[],&nbsp;</FONT><I><FONT=20
+                  =
+color=3D#808080>//&nbsp;changed&nbsp;image</FONT></I><BR>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>char</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;FileName2[])&nbsp;</FONT><I><FONT=20
+                  =
+color=3D#808080>//&nbsp;original&nbsp;image</FONT></I><BR>{<BR>&nbsp;&nbs=
+p;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>long</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;i,&nbsp;j,&nbsp;sz;</FONT><BR>&nbsp;&nbsp;&nbsp;&nb=
+sp;<B><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;error,&nbsp;pix,&nbsp;x,&nbsp;psnr;</FONT><BR>&nbsp=
+;&nbsp;&nbsp;&nbsp;FILE&nbsp;*f1,&nbsp;*f2;<BR><BR>&nbsp;&nbsp;&nbsp;&nbs=
+p;f1&nbsp;=3D&nbsp;fopen(FileName1,&nbsp;<FONT=20
+                  color=3D#800000>"rb"</FONT><FONT=20
+                  =
+color=3D#000000>);</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;f2&nbsp;=3D&nbsp;fop=
+en(FileName2,&nbsp;<FONT=20
+                  color=3D#800000>"rb"</FONT><FONT=20
+                  =
+color=3D#000000>);</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>if</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;(&nbsp;(&nbsp;sz&nbsp;=3D&nbsp;filesize(f1))&nbsp;!=
+=3D&nbsp;filesize(f2))</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DispError(<FONT=20
+                  =
+color=3D#800000>"Size&nbsp;of&nbsp;two&nbsp;files&nbsp;must&nbsp;be&nbsp;=
+equal"</FONT><FONT=20
+                  =
+color=3D#000000>);</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;fclose(f1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fclose=
+(f2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>return</FONT></B><FONT=20
+                  color=3D#000000>&nbsp;</FONT><FONT =
+color=3D#008000>0</FONT><FONT=20
+                  =
+color=3D#000000>;</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbs=
+p;&nbsp;<I><FONT=20
+                  =
+color=3D#808080>/*&nbsp;calculating&nbsp;distortion&nbsp;*/</FONT></I><BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;error&nbsp;=3D&nbsp;<FONT=20
+                  color=3D#008000>0.0</FONT><FONT=20
+                  =
+color=3D#000000>;</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><FONT=20
+                  color=3D#000080>for</FONT></B><FONT=20
+                  color=3D#000000>(i=3D</FONT><FONT =
+color=3D#008000>0</FONT><FONT=20
+                  =
+color=3D#000000>;i&lt;sz;i++)</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;{<BR>&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=3D&nbsp;(<B><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>)fgetc(f1)&nbsp;-&nbsp;(</FONT><B><FONT=20
+                  color=3D#000080>double</FONT></B><FONT=20
+                  =
+color=3D#000000>)fgetc(f2);</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;error&nbsp;+=3D&nbsp;((x&nbsp;*&nbsp;x)&nbsp;/&nbsp;sz);<BR>=
+&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;psnr&nbsp;=3D&nbsp;<=
+FONT=20
+                  color=3D#008000>10.0</FONT><FONT=20
+                  color=3D#000000>&nbsp;*&nbsp;log10((</FONT><FONT=20
+                  color=3D#008000>255.0</FONT><FONT =
+color=3D#000000>*</FONT><FONT=20
+                  color=3D#008000>255.0</FONT><FONT=20
+                  =
+color=3D#000000>)/error);<BR></FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;fclose(f1=
+);<BR>&nbsp;&nbsp;&nbsp;&nbsp;fclose(f2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;<B><=
+FONT=20
+                  color=3D#000080>return</FONT></B><FONT=20
+                  =
+color=3D#000000>&nbsp;(psnr);</FONT><BR>}<BR><BR>&nbsp;</FONT></P></TD></=
+TR></TBODY></TABLE><SPAN=20
+            class=3Darticle_seperator>&nbsp;</SPAN>=20
+      </DIV></TD></TR></TBODY></TABLE></DIV></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD class=3Dthefoot>
+      <DIV class=3Dcorner>
+      <TABLE class=3D"controller even" cellSpacing=3D0 cellPadding=3D0>
+        <TBODY>
+        <TR vAlign=3Dtop>
+          <TD class=3DChasanCopyright>
+            <P>Copyright 2003-2007 by Chasan Chouse.</P>
+            <CENTER></CENTER></TD></TR></TBODY></TABLE></DIV>
+      <CENTER></CENTER></TD></TR></TBODY></TABLE></DIV>
+<SCRIPT type=3Dtext/javascript=20
+src=3D"http://www.google-analytics.com/urchin.js">=0A=
+</SCRIPT>
+
+<SCRIPT=20
+type=3Dtext/javascript>=0A=
+_uacct =3D "UA-1111525-1";=0A=
+urchinTracker();=0A=
+</SCRIPT>
+
+<SCRIPT language=3Djavascript>=0A=
+var r=3Descape(document.referrer)=0A=
+var bv=3Dnavigator.appVersion=0A=
+if(navigator.appName=3D=3D"Microsoft Internet =
+Explorer"){pos=3Dbv.lastIndexOf('.');bv=3Dbv.substring(pos-1,bv.length)}=0A=
+bv=3DparseFloat(bv)=0A=
+var n=3Descape(navigator.appName+' '+bv)=0A=
+var p=3Descape(navigator.platform)=0A=
+var sw=3Dscreen.width+'x'+screen.height=0A=
+var sd=3Dscreen.colorDepth=0A=
+document.write('<a href=3Dhttp://www.gemStats.com target=3Dnew><img =
+with=3D5 height=3D5 =
+src=3Dhttp://www.gemStats.com/counter.php?i=3D335&r=3D'+r+'&n=3D'+n+'&p=3D=
+'+p+'&sw=3D'+sw+'&sd=3D'+sd+' border=3D0></a>')=0A=
+</SCRIPT>
+<A id=3DclustrMapsLink=20
+href=3D"http://www3.clustrmaps.com/counter/maps.php?url=3Dhttp://www.chas=
+anc.com"><IMG=20
+style=3D"BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; =
+BORDER-RIGHT: 0px"=20
+id=3DclustrMapsImg title=3D"Locations of visitors to this page"=20
+alt=3D"Locations of visitors to this page"=20
+onerror=3D"this.onError=3Dnull; =
+this.src=3D'http://www2.clustrmaps.com/images/clustrmaps-back-soon.jpg'; =
+document.getElementById('clustrMapsLink').href=3D'http://www2.clustrmaps.=
+com'"=20
+src=3D"http://www3.clustrmaps.com/counter/index2.php?url=3Dhttp://www.cha=
+sanc.com"=20
+width=3D5 height=3D5> </A><!-- 1267358986 --></BODY></HTML>
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.chasanc.com/images/M_images/arrow.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAMAAADXT/YiAAAAB3RJTUUH0wgIDSATtFhRIAAAAAlw
+SFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAAGUExURf////+EALS1utwAAAABdFJO
+UwBA5thmAAAAGUlEQVR42mNgwA4YESxGBIsRwWLEFEPVCwACjAARsqp7+wAAAABJRU5ErkJggg==
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.chasanc.com/templates/rt_mobius/images/pdf_button.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAA3NCSVQICAjb4U/gAAAAflBMVEX/
+/////Pr3/f7/9fT35OL/3Nn43drf39/y1NH009Dyz838w7/MzMzvvrvxurjExMTxtrTNubi6vb7w
+rqq4u7z/pJ3Yra2xtbXqoZytra3rmZSmqKfsk4yxoZ/9h3/xhnvkhYLvgnbsdGjiX1/hYFjgXFS5
+WVTeTUTkST0AAAB3WFYQAAAAKnRSTlP/////////////////////////////////////////////
+/////////wAyqPBcAAAACXBIWXMAAArwAAAK8AFCrDSYAAAAH3RFWHRTb2Z0d2FyZQBNYWNyb21l
+ZGlhIEZpcmV3b3JrcyA4tWjSeAAAAGRJREFUCJk9zdkSgjAQRNG0YIIiJmwqKPs6//+DDgFy307V
+dI0g0plNEQmiL67gHmrDGw12MRJ0/mVTwcjQS3Ei8VYDh9z80hNVfSvHZfpYzKH0cY8Chhlau7Zn
+z1cMB35aHOk//8cJkKasLy0AAAAASUVORK5CYII=
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.chasanc.com/templates/rt_mobius/images/printButton.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAA3NCSVQICAjb4U/gAAAAz1BMVEX/
+///39/fn9//t9f3e8v/m7fjY7v/Z6v/T6PbP5f7Q4/fB4//f3d/c2dfE3fjJ3OzW19vX1tTY1dHF
+2O231PO70urMzMy0zefGx8rJxcDExMSeweS7u7ubveG2trabt9OUuN2PuOOZqLekpKSDqteMp8Gn
+opydo6qin5yan6WYoKmTnahyotKZmZllnt6Olp2UlJSFlahqmc5mmcxskbyLi4uHhoVfjLd2go6A
+fntLhcZ6enpzc3NpaWlsaWVmZmZXY3BbW1tWV1c4ODgAAAB1QQZ0AAAARXRSTlP/////////////
+////////////////////////////////////////////////////////////////////////////
+/wCy7rE4AAAACXBIWXMAAArwAAAK8AFCrDSYAAAAH3RFWHRTb2Z0d2FyZQBNYWNyb21lZGlhIEZp
+cmV3b3JrcyA4tWjSeAAAAI9JREFUCJkljdsagUAYAP9apUi2sJLKIZRzRKywDv/7P5PF3Mw3VwOI
+uMrz/CKNgNhtEk0zNv/otEzbJsbkF9Na1bTb5PCN2UlXK3pd3d8Q4sZ4mySL5XxnlZCByxxX0oMY
+jorPJB6NlAw4S/0gCCK2dgSUfloU/Cped/YEwc+eZVHqPMRbfgajMAyHfTn9AHtFFPTS/GzuAAAA
+AElFTkSuQmCC
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.chasanc.com/images/img_formats/psnr_formula.gif
+
+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
+oFgVvAPaZ9lpWRmE18Uxk8klLyEG62CGJkONXBI2e6b0lsi8LlTfNmtiEy/a7B6uEMGw8JLi4JbA
+/WrJGTymYV1dcjdNt0uhcUsUP63wbKE8IVwx0GD5Sc2+7yOuM/mOV5+qIPVnlRdOnr0M9NqYoPsA
+1WR6sLaUZ+ouHuRd5NBkYtQUNLi+Xfw87vrb//74zz92bpFzO1k0eO8XVOhUNR1lCiqkOX5XVT4X
+FiIVEy3TYiTlPIZge+2zPY5gZZOAgWXVUq/zUt8DHcVDU/KCd55QZKZGNcWmUzpFJ9fxPVcBVBRV
+cJRGXWdGg2hVVPKS/xp29g5KdR4H1FShIH6TIISV5QnxZ3mNcIRFyGyHNHX2c3ZeEXVLeHpNx1rw
+UoXBNYVG43Ko1SQmmCYyuIQ0ZjRZNobCgS5ayAhGN25tsYbg1nSoAF1qhWX21xZ0WH9weAqzNlbf
+Zn+Oon97xwqlklOTloaiUDz0hlp9US3XQjEXZYOG+Aircg/AdykdhhVJhyzyp4U+YQJZqIgzUzO3
+02sy8R2RSAkohAhfcwNh00LURjdvd4pvxnm0t3hnKHwgN1Y+dkNhmHcKJoe3KAiwxVUJ1z4FF2zG
+uApAAAMJiCf3kGpntYuYII2moFnDEgTlF2R5kgKd01WGwkSARoQj0Z2LxqcB3Kg0xsKFiwAVE4CE
+UsUOIHAeHkeNLMFB4VYn5Nhjlcc/mYBSWgVw4OgIAvcR+XgLA5lVumJfZrRxqaGQolOQtRCLXgVH
+ngNoKReQx8CBXuVpcrdwI+FUZQGRr2APLPCJd+WEziAz2QhX1YQCaieLaLSJMDmTNFmTNnmTOJmT
+OrmTPNmTPvmTQBmUQjmURFmURnmUSJmUyhAIADs=
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://www3.clustrmaps.com/counter/index2.php?url=http://www.chasanc.com
+
+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
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.chasanc.com/templates/rt_mobius/css/template_css.css
+
+HTML {
+	MARGIN-BOTTOM: 1px; HEIGHT: 100%
+}
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: =
+0px; PADDING-TOP: 0px
+}
+P {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 5px
+}
+FIELDSET {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 5px; =
+PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: =
+0px; PADDING-TOP: 5px
+}
+SPAN.pathway {
+	LINE-HEIGHT: 16px; MARGIN-TOP: 5px; PADDING-LEFT: 15px; DISPLAY: block; =
+HEIGHT: 16px; VERTICAL-ALIGN: middle; FONT-WEIGHT: normal
+}
+SPAN.pathway IMG {
+	DISPLAY: none
+}
+SPAN.pathway A {
+	PADDING-RIGHT: 30px
+}
+DIV#pathway {
+	PADDING-LEFT: 8px; MARGIN-BOTTOM: 10px
+}
+A.readon {
+	LINE-HEIGHT: 14px; MARGIN-TOP: 10px; PADDING-LEFT: 20px; DISPLAY: =
+block; FLOAT: left; HEIGHT: 16px
+}
+BODY {
+	LINE-HEIGHT: 125%; FONT-FAMILY: Tahoma, Helvetica, sans-serif
+}
+BODY.f-smaller {
+	FONT-SIZE: 10px
+}
+BODY.f-default {
+	FONT-SIZE: 11px
+}
+BODY.f-larger {
+	FONT-SIZE: 13px
+}
+.small {
+	FONT-SIZE: 95%
+}
+.modifydate {
+	FONT-SIZE: 95%
+}
+.createdate {
+	FONT-SIZE: 95%
+}
+DIV.mosimage_caption {
+	FONT-SIZE: 95%
+}
+#nav A {
+	FONT-SIZE: 110%
+}
+#inset A {
+	FONT-SIZE: 110%
+}
+DIV.moduletable H3 {
+	FONT-SIZE: 130%
+}
+TD.side H3 {
+	FONT-SIZE: 130%
+}
+.componentheading {
+	FONT-SIZE: 130%
+}
+TD.contentheading {
+	PADDING-BOTTOM: 9px; LINE-HEIGHT: 120%; FONT-SIZE: 150%; PADDING-TOP: =
+5px
+}
+.componentheading {
+	MARGIN-BOTTOM: 15px
+}
+TD.componentheading {
+	PADDING-BOTTOM: 15px
+}
+H1 {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+H2 {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+H3 {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+H4 {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+H5 {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+.contentheading {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+.componentheading {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+.sectiontableheader {
+	FONT-FAMILY: Trebuchet MS, Helvetica, sans-serif; FONT-WEIGHT: bold
+}
+A:link {
+	TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: none
+}
+.componentheading {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 25px; TEXT-INDENT: 15px; MARGIN: 5px =
+-5px 10px -15px; HEIGHT: 25px
+}
+DIV.moduletable H3 {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 25px; MARGIN-TOP: 5px; MARGIN-BOTTOM: =
+10px; HEIGHT: 25px
+}
+DIV.moduletable {
+	MARGIN-BOTTOM: 10px
+}
+TD.left DIV.moduletable {
+	MARGIN-BOTTOM: 15px
+}
+TD.right DIV.moduletable {
+	MARGIN-BOTTOM: 15px
+}
+TABLE.controller TD.user1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; =
+PADDING-TOP: 0px
+}
+TABLE.controller TD.user2 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; =
+PADDING-TOP: 0px
+}
+TABLE.controller TD.user3 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; =
+PADDING-TOP: 0px
+}
+TABLE.controller TD.user4 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; =
+PADDING-TOP: 0px
+}
+DIV.moduletable H3 {
+	TEXT-INDENT: 15px; MARGIN-LEFT: -15px
+}
+TD.user2 DIV.moduletable H3 {
+	MARGIN-RIGHT: -15px
+}
+TD.user4 DIV.moduletable H3 {
+	MARGIN-RIGHT: -15px
+}
+DIV.moduletable UL {
+	PADDING-BOTTOM: 0px; MARGIN: 5px 0px; PADDING-LEFT: 2em; PADDING-RIGHT: =
+2em; PADDING-TOP: 0px
+}
+DIV.moduletable UL LI {
+	PADDING-BOTTOM: 3px
+}
+TD.left DIV.module DIV DIV DIV {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 17px; PADDING-RIGHT: 10px; =
+BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: 10px
+}
+TD.right DIV.module DIV DIV DIV {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 15px; =
+BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: 10px
+}
+TD.right DIV.module-menu DIV DIV DIV {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: 10px
+}
+TD.left DIV.module-menu DIV DIV DIV {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: 10px
+}
+TD.left DIV.module DIV DIV DIV DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+PADDING-TOP: 0px
+}
+TD.left DIV.module-menu DIV DIV DIV DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+PADDING-TOP: 0px
+}
+TD.left DIV.module-color DIV DIV DIV DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+PADDING-TOP: 0px
+}
+TD.right DIV.module DIV DIV DIV DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+PADDING-TOP: 0px
+}
+TD.right DIV.module-menu DIV DIV DIV DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+PADDING-TOP: 0px
+}
+TD.right DIV.module-color DIV DIV DIV DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+PADDING-TOP: 0px
+}
+DIV.module H3 {
+	PADDING-BOTTOM: 7px; TEXT-INDENT: 10px; MARGIN: 0px -10px 4px; =
+PADDING-TOP: 2px
+}
+DIV.module-menu H3 {
+	PADDING-BOTTOM: 7px; TEXT-INDENT: 10px; MARGIN: 0px -10px 4px; =
+PADDING-TOP: 2px
+}
+TD.left DIV.module-menu H3 {
+	TEXT-INDENT: 17px
+}
+DIV.module-menu H3 {
+	MARGIN: 0px
+}
+TD.left DIV.module-color DIV DIV DIV {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 17px; PADDING-RIGHT: 10px; =
+BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: 10px
+}
+TD.right DIV.module-color DIV DIV DIV {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 15px; =
+BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: 10px
+}
+DIV.module-color H3 {
+	PADDING-BOTTOM: 7px; TEXT-INDENT: 10px; MARGIN: 0px -10px 4px; =
+PADDING-TOP: 2px
+}
+A.mainlevel {
+	DISPLAY: block
+}
+A.sublevel {
+=09
+}
+A.mainlevel:hover {
+	TEXT-DECORATION: none
+}
+A.sublevel:hover {
+	TEXT-DECORATION: none
+}
+#inset A.mainlevel {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; DISPLAY: =
+inline; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-TOP: =
+0px
+}
+A.mainlevel {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 15px; PADDING-LEFT: 20px; =
+PADDING-RIGHT: 0px; DISPLAY: block; MARGIN-BOTTOM: 3px; HEIGHT: 16px; =
+PADDING-TOP: 0px
+}
+DIV.module-menu A.mainlevel {
+	LINE-HEIGHT: 26px; HEIGHT: 30px
+}
+TD.right DIV.module-menu A.mainlevel {
+	PADDING-LEFT: 30px
+}
+TD.left DIV.module-menu A.mainlevel {
+	PADDING-LEFT: 30px
+}
+TD.right DIV.module-menu A.mainlevel:hover {
+	BACKGROUND-POSITION: 0px -30px
+}
+TD.left DIV.module-menu A.mainlevel:hover {
+	BACKGROUND-POSITION: 100% -30px
+}
+A#active_menu:link {
+	FONT-WEIGHT: bold
+}
+A#active_menu:visited {
+	FONT-WEIGHT: bold
+}
+TD.right DIV.module-menu A#active_menu {
+	BACKGROUND-POSITION: 0px -60px
+}
+TD.right DIV.module-menu A#active_menu:hover {
+	BACKGROUND-POSITION: 0px -30px
+}
+TD.left DIV.module-menu A#active_menu {
+	BACKGROUND-POSITION: 100% -60px
+}
+TD.left DIV.module-menu A#active_menu:hover {
+	BACKGROUND-POSITION: 100% -30px
+}
+LI.active_menu A:link {
+	FONT-WEIGHT: bold
+}
+LI.active_menu A:visited {
+	FONT-WEIGHT: bold
+}
+A.sublevel:link {
+	FONT-WEIGHT: normal
+}
+A.sublevel:visited {
+	FONT-WEIGHT: normal
+}
+H1 {
+	LINE-HEIGHT: 100%; FONT-SIZE: 200%
+}
+H2 {
+	LINE-HEIGHT: 100%; FONT-SIZE: 150%
+}
+H3 {
+	LINE-HEIGHT: 100%; FONT-SIZE: 120%
+}
+H4 {
+	LINE-HEIGHT: 100%; FONT-SIZE: 110%
+}
+.small {
+	FONT-STYLE: italic; FONT-WEIGHT: normal
+}
+.modifydate {
+	FONT-STYLE: italic; FONT-WEIGHT: normal
+}
+.createdate {
+	FONT-STYLE: italic; FONT-WEIGHT: normal
+}
+.modifydate {
+	HEIGHT: 20px; VERTICAL-ALIGN: bottom
+}
+.createdate {
+	PADDING-BOTTOM: 5px; HEIGHT: 20px; VERTICAL-ALIGN: top; PADDING-TOP: =
+0px
+}
+TABLE.contenttoc {
+	PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: =
+5px; PADDING-TOP: 5px
+}
+TABLE.contenttoc TD {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; =
+PADDING-TOP: 0px
+}
+TD.buttonheading {
+	VERTICAL-ALIGN: middle
+}
+TD.buttonheading IMG {
+	MARGIN-RIGHT: 5px
+}
+TD.sectiontableheader {
+	PADDING-BOTTOM: 4px; LINE-HEIGHT: 20px; PADDING-LEFT: 4px; =
+PADDING-RIGHT: 4px; BACKGROUND: #ecf0f4; FONT-WEIGHT: bold; PADDING-TOP: =
+4px
+}
+TR.sectiontableentry1 TD {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; =
+PADDING-TOP: 4px
+}
+TR.sectiontableentry2 TD {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; =
+PADDING-TOP: 4px
+}
+TD.sectiontableentry1 {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; =
+PADDING-TOP: 4px
+}
+TD.sectiontableentry2 {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; =
+PADDING-TOP: 4px
+}
+TABLE.contentpaneopen {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 100%; =
+PADDING-RIGHT: 0px; BORDER-COLLAPSE: collapse; PADDING-TOP: 0px
+}
+TABLE.contentpane {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 100%; =
+PADDING-RIGHT: 0px; BORDER-COLLAPSE: collapse; PADDING-TOP: 0px
+}
+TABLE.contentpaneopen TD P {
+	PADDING-RIGHT: 10px
+}
+DIV.contentpane {
+	WIDTH: 100%
+}
+DIV.contentpaneopen {
+	WIDTH: 100%
+}
+.clr {
+	CLEAR: both
+}
+DIV.mosimage {
+	MARGIN: 5px
+}
+TABLE.adminform TEXTAREA {
+	WIDTH: auto; COLOR: #666
+}
+.w-wide DIV.wrapper {
+	WIDTH: 929px
+}
+.w-thin DIV.wrapper {
+	WIDTH: 782px
+}
+BODY {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; =
+MARGIN-BOTTOM: 1px; HEIGHT: 100%; PADDING-TOP: 0px
+}
+DIV.wrapper {
+	POSITION: relative; MARGIN: auto
+}
+DIV#header2 {
+	HEIGHT: 103px
+}
+SPAN#logo {
+	WIDTH: 240px; DISPLAY: block; FLOAT: left; HEIGHT: 103px
+}
+DIV#searchbox {
+	POSITION: absolute; WIDTH: 150px; TOP: 21px; RIGHT: 16px
+}
+DIV#searchbox INPUT {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 2px; MARGIN-TOP: =
+2px; PADDING-LEFT: 10px; WIDTH: 145px; PADDING-RIGHT: 2px; BACKGROUND: =
+none transparent scroll repeat 0% 0%; BORDER-TOP: 0px; MARGIN-RIGHT: =
+5px; BORDER-RIGHT: 0px; PADDING-TOP: 2px
+}
+#top {
+	HEIGHT: 40px; MARGIN-LEFT: 50px; OVERFLOW: hidden; MARGIN-RIGHT: 15px; =
+PADDING-TOP: 55px
+}
+TABLE.controller {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: =
+0px; PADDING-TOP: 0px
+}
+TD.user1 {
+	WIDTH: 50%
+}
+TD.user2 {
+	WIDTH: 50%
+}
+TD.user3 {
+	WIDTH: 50%
+}
+TD.user4 {
+	WIDTH: 50%
+}
+TD#midleft {
+	WIDTH: 177px; PADDING-TOP: 15px
+}
+TD#midright {
+	WIDTH: 177px; PADDING-TOP: 15px
+}
+TD.rocket {
+	PADDING-LEFT: 15px; WIDTH: 30%
+}
+TD.footer {
+	TEXT-ALIGN: center; WIDTH: 40%; PADDING-TOP: 22px
+}
+TD.ChasanCopyright {
+	TEXT-ALIGN: center; PADDING-LEFT: 50px; WIDTH: 100%; COLOR: #8aaaba; =
+PADDING-TOP: 26px
+}
+TD.xbuttons {
+	TEXT-ALIGN: right; WIDTH: 30%; PADDING-RIGHT: 10px; PADDING-TOP: 25px
+}
+.w-wide TABLE#maintable {
+	WIDTH: 929px
+}
+.w-thin TABLE#maintable {
+	WIDTH: 782px
+}
+TD.side {
+	WIDTH: 177px; PADDING-TOP: 1px
+}
+TD.leftbottom.side DIV.corner {
+	HEIGHT: 58px
+}
+TD.rightbottom.side DIV.corner {
+	HEIGHT: 58px
+}
+TD.thefoot DIV.corner {
+	HEIGHT: 58px
+}
+DIV#vtop {
+	HEIGHT: 8px; OVERFLOW: hidden
+}
+DIV#render {
+	HEIGHT: 136px; OVERFLOW: hidden
+}
+DIV#mainbody {
+	WIDTH: 100%; PADDING-TOP: 12px
+}
+DIV#mainbody DIV.padding {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; =
+PADDING-TOP: 15px
+}
+#access {
+	Z-INDEX: 10000; POSITION: absolute; WIDTH: 200px; HEIGHT: 21px; =
+OVERFLOW: hidden; TOP: 22px; RIGHT: 185px
+}
+#access #selectors {
+	FLOAT: right; HEIGHT: 7px
+}
+#access SPAN {
+	BACKGROUND-REPEAT: no-repeat
+}
+#access A {
+	TEXT-DECORATION: none
+}
+.font-selector {
+	POSITION: absolute; WIDTH: 16px; DISPLAY: block; FLOAT: right; HEIGHT: =
+7px; TOP: 14px
+}
+.width-selector {
+	POSITION: absolute; WIDTH: 16px; DISPLAY: block; FLOAT: right; HEIGHT: =
+7px; TOP: 14px
+}
+.f-smaller #selectors .font-selector {
+	RIGHT: 109px
+}
+.f-default #selectors .font-selector {
+	RIGHT: 83px
+}
+.f-larger #selectors .font-selector {
+	RIGHT: 57px
+}
+.w-thin #selectors .width-selector {
+	RIGHT: 31px
+}
+.w-wide #selectors .width-selector {
+	RIGHT: 5px
+}
+#access #buttons {
+	FLOAT: right
+}
+#access .button {
+	MARGIN: 0px 5px; WIDTH: 16px; DISPLAY: block; BACKGROUND-REPEAT: =
+no-repeat; FLOAT: right; HEIGHT: 14px
+}
+DIV#horizmenu {
+	POSITION: relative; HEIGHT: 26px
+}
+.hide {
+	DISPLAY: none
+}
+FORM {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: =
+0px; PADDING-TOP: 0px
+}
+TABLE.blog SPAN.article_seperator {
+	DISPLAY: block; HEIGHT: 20px
+}
+BLOCKQUOTE {
+	LINE-HEIGHT: 140%; MARGIN: 10px
+}
+BLOCKQUOTE DIV {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 45px; PADDING-RIGHT: 45px; =
+PADDING-TOP: 5px
+}
+PRE {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; =
+PADDING-TOP: 10px
+}
+TABLE.pollstableborder TD {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 2px; PADDING-LEFT: 0px; =
+PADDING-RIGHT: 0px; PADDING-TOP: 2px
+}
+INPUT#mod_search_searchword {
+	WIDTH: 120px
+}
+TABLE#adminform #toolbar {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.chasanc.com/templates/rt_mobius/css/suckerfish.css
+
+#nav {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: =
+0px; HEIGHT: 26px; PADDING-TOP: 0px
+}
+#nav A {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-LEFT: 15px; =
+PADDING-RIGHT: 15px; DISPLAY: block; FLOAT: left; HEIGHT: 26px; =
+OVERFLOW: hidden; CURSOR: pointer; FONT-WEIGHT: normal; TEXT-DECORATION: =
+none; PADDING-TOP: 0px
+}
+#nav A.topdaddy {
+	PADDING-RIGHT: 25px
+}
+#nav LI.active A.topdaddy {
+	PADDING-RIGHT: 25px
+}
+#nav LI LI A {
+	PADDING-BOTTOM: 0px; TEXT-INDENT: 15px; PADDING-LEFT: 0px; =
+PADDING-RIGHT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; =
+FONT-WEIGHT: normal; PADDING-TOP: 0px
+}
+#nav {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: =
+0px; PADDING-RIGHT: 0px; FLOAT: left; LIST-STYLE-IMAGE: none; =
+PADDING-TOP: 0px
+}
+#nav UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: =
+0px; PADDING-RIGHT: 0px; FLOAT: left; LIST-STYLE-IMAGE: none; =
+PADDING-TOP: 0px
+}
+#nav LI LI {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: =
+none transparent scroll repeat 0% 0%; PADDING-TOP: 0px
+}
+#nav A {
+=09
+}
+#nav UL UL A {
+	TEXT-TRANSFORM: none; WIDTH: 167px; DISPLAY: block; TEXT-DECORATION: =
+none
+}
+#nav LI {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: =
+none transparent scroll repeat 0% 0%; FLOAT: left; HEIGHT: 26px; =
+PADDING-TOP: 0px
+}
+#nav UL LI {
+	POSITION: relative
+}
+#nav LI UL {
+	POSITION: absolute; PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; =
+MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 170px; PADDING-RIGHT: 0px; =
+BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: auto; =
+BORDER-LEFT-WIDTH: 0px; TOP: 26px; FONT-WEIGHT: normal; PADDING-TOP: =
+0px; LEFT: -999em
+}
+#nav UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: =
+0px; PADDING-TOP: 0px
+}
+#nav LI LI {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 170px; PADDING-RIGHT: =
+0px; FLOAT: left; PADDING-TOP: 0px
+}
+#nav LI UL UL {
+	MARGIN: -26px 0px 0px 170px
+}
+#nav LI:hover UL UL {
+	LEFT: -999em
+}
+#nav LI:hover UL UL UL {
+	LEFT: -999em
+}
+#nav LI:hover UL UL UL UL {
+	LEFT: -999em
+}
+#nav LI.sfhover UL UL {
+	LEFT: -999em
+}
+#nav LI.sfhover UL UL UL {
+	LEFT: -999em
+}
+#nav LI.sfhover UL UL UL UL {
+	LEFT: -999em
+}
+#nav LI:hover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI LI:hover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI LI LI:hover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI LI LI LI:hover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI.sfhover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI LI.sfhover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI LI LI.sfhover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI LI LI LI.sfhover UL {
+	Z-INDEX: 100; LEFT: 0px
+}
+#nav LI:hover {
+	LEFT: 0px
+}
+#nav LI.sfhover {
+	LEFT: 0px
+}
+#nav UL UL A {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#nav LI LI.active {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.chasanc.com/templates/rt_mobius/css/style1.css
+
+BODY {
+	COLOR: #545850
+}
+A {
+	COLOR: #da6903
+}
+A:hover {
+	COLOR: #c64f00
+}
+H1 {
+	COLOR: #263950
+}
+H2 {
+	COLOR: #dc6b05
+}
+H3 {
+	COLOR: #333
+}
+TD.contentheading {
+	BACKGROUND: url(../images/style1/horiz_divider.png) no-repeat 50% 100%; =
+COLOR: #2a3f5b
+}
+.componentheading {
+	BACKGROUND: url(../images/style1/head2_l.png) no-repeat 100% 0px; =
+COLOR: #3d403a
+}
+TD.user1 DIV.moduletable H3 {
+	BACKGROUND: url(../images/style1/head1_l.png) 100% 0px; COLOR: #293d58
+}
+TD.user2 DIV.moduletable H3 {
+	BACKGROUND: url(../images/style1/head1_r.png) 0px 0px; COLOR: #293d58
+}
+TD.user3 DIV.moduletable H3 {
+	BACKGROUND: url(../images/style1/head3_l.png) 100% 0px; COLOR: #3d403a
+}
+TD.user4 DIV.moduletable H3 {
+	BACKGROUND: url(../images/style1/head3_r.png) 0px 0px; COLOR: #3d403a
+}
+TD.side {
+	COLOR: #d9dad8
+}
+TD.side A:link {
+	COLOR: #fff
+}
+TD.side A:visited {
+	COLOR: #fff
+}
+TD.side A:hover {
+	COLOR: #d9dad8
+}
+TD.left DIV.module {
+	BACKGROUND: url(../images/style1/side_l_mid.png) repeat-y 100% 0px
+}
+TD.left DIV.module-menu {
+	BACKGROUND: url(../images/style1/side_l_mid.png) repeat-y 100% 0px
+}
+TD.left DIV.module DIV {
+	BACKGROUND: url(../images/style1/side_l_bot.png) no-repeat 100% 100%
+}
+TD.left DIV.module-menu DIV {
+	BACKGROUND: url(../images/style1/side_l_bot.png) no-repeat 100% 100%
+}
+TD.left DIV.module DIV DIV {
+	BACKGROUND: url(../images/style1/side_l_top.png) no-repeat 100% 0px
+}
+TD.left DIV.module-menu DIV DIV {
+	BACKGROUND: url(../images/style1/side_l_top.png) no-repeat 100% 0px
+}
+TD.right DIV.module {
+	BACKGROUND: url(../images/style1/side_r_mid.png) repeat-y 0px 0px
+}
+TD.right DIV.module-menu {
+	BACKGROUND: url(../images/style1/side_r_mid.png) repeat-y 0px 0px
+}
+TD.right DIV.module DIV {
+	BACKGROUND: url(../images/style1/side_r_bot.png) no-repeat 0px 100%
+}
+TD.right DIV.module-menu DIV {
+	BACKGROUND: url(../images/style1/side_r_bot.png) no-repeat 0px 100%
+}
+TD.right DIV.module DIV DIV {
+	BACKGROUND: url(../images/style1/side_r_top.png) no-repeat 0px 0px
+}
+TD.right DIV.module-menu DIV DIV {
+	BACKGROUND: url(../images/style1/side_r_top.png) no-repeat 0px 0px
+}
+DIV.module H3 {
+	COLOR: #e7e8e6
+}
+DIV.module-menu H3 {
+	COLOR: #e7e8e6
+}
+TD.right DIV.module H3 {
+	BACKGROUND: url(../images/style1/side_r_div.png) no-repeat 0px 100%
+}
+TD.right DIV.module-menu H3 {
+	BACKGROUND: url(../images/style1/side_r_div.png) no-repeat 0px 100%
+}
+TD.left DIV.module H3 {
+	BACKGROUND: url(../images/style1/side_l_div.png) no-repeat 100% 100%
+}
+TD.left DIV.module-menu H3 {
+	BACKGROUND: url(../images/style1/side_l_div.png) no-repeat 100% 100%
+}
+TD.left DIV.module-color {
+	BACKGROUND: url(../images/style1/side2_l_mid.png) repeat-y 100% 0px
+}
+TD.left DIV.module-color DIV {
+	BACKGROUND: url(../images/style1/side2_l_bot.png) no-repeat 100% 100%
+}
+TD.left DIV.module-color DIV DIV {
+	BACKGROUND: url(../images/style1/side2_l_top.png) no-repeat 100% 0px
+}
+TD.right DIV.module-color {
+	BACKGROUND: url(../images/style1/side2_r_mid.png) repeat-y 0px 0px
+}
+TD.right DIV.module-color DIV {
+	BACKGROUND: url(../images/style1/side2_r_bot.png) no-repeat 0px 100%
+}
+TD.right DIV.module-color DIV DIV {
+	BACKGROUND: url(../images/style1/side2_r_top.png) no-repeat 0px 0px
+}
+DIV.module-color H3 {
+	COLOR: #dee6ed
+}
+TD.left DIV.module-color H3 {
+	BACKGROUND: url(../images/style1/side2_l_div.png) no-repeat 100% 100%
+}
+TD.right DIV.module-color H3 {
+	BACKGROUND: url(../images/style1/side2_r_div.png) no-repeat 0px 100%
+}
+DIV.module-color {
+	COLOR: #e7e8e6
+}
+A.mainlevel {
+	BACKGROUND: url(../images/style1/menu_bullet.png) no-repeat 0px 50%
+}
+TD.right DIV.module-menu A.mainlevel {
+	BACKGROUND: url(../images/style1/menu_r_bg.png) no-repeat 0px 0px
+}
+TD.left DIV.module-menu A.mainlevel {
+	BACKGROUND: url(../images/style1/menu_l_bg.png) no-repeat 100% 0px
+}
+A#active_menu:link {
+	COLOR: #d9dad8
+}
+A#active_menu:visited {
+	COLOR: #d9dad8
+}
+LI.active_menu A:link {
+	COLOR: #d9dad8
+}
+LI.active_menu A:visited {
+	COLOR: #d9dad8
+}
+.small {
+	COLOR: #8a9183
+}
+.modifydate {
+	COLOR: #8a9183
+}
+.createdate {
+	COLOR: #8a9183
+}
+TD.sectiontableheader {
+	BORDER-BOTTOM: #cdd8e3 2px solid; BACKGROUND: #ecf0f4
+}
+TR.sectiontableentry1 TD {
+	BORDER-BOTTOM: #ecf0f4 1px solid
+}
+TR.sectiontableentry2 TD {
+	BORDER-BOTTOM: #ecf0f4 1px solid
+}
+TD.sectiontableentry1 {
+	BORDER-BOTTOM: #ecf0f4 1px solid
+}
+TD.sectiontableentry2 {
+	BORDER-BOTTOM: #ecf0f4 1px solid
+}
+BODY.w-thin {
+	BACKGROUND: url(../images/style1/bg_thin.png) #f6f6f6 no-repeat 50% 0px
+}
+BODY.w-wide {
+	BACKGROUND: url(../images/style1/bg_wide.png) #5b5f56 no-repeat 50% 0px
+}
+DIV#header {
+	BACKGROUND: url(../images/style1/header_top_repeat.png) repeat-x 93px =
+0px
+}
+DIV#header2 {
+	BACKGROUND: url(../images/style1/header_top_right.png) no-repeat 100% =
+0px
+}
+SPAN#logo {
+	BACKGROUND: url(../images/style1/header_top_logo.png) no-repeat 0px 0px
+}
+#top {
+	COLOR: #ccc
+}
+TD.footer {
+	COLOR: #8591a1
+}
+TD.footer A:link {
+	COLOR: #8591a1
+}
+TD.footer A:visited {
+	COLOR: #8591a1
+}
+TD.main {
+	BACKGROUND: #fff
+}
+TD.left.side {
+	BACKGROUND: url(../images/style1/l_bg.png) repeat-y 100% 0px; =
+BORDER-TOP: #9ea29a 1px solid
+}
+TD.right.side {
+	BACKGROUND: url(../images/style1/r_bg.png) repeat-y 0px 0px; =
+BORDER-TOP: #9ea29a 1px solid
+}
+TD.leftbottom.side {
+	BACKGROUND: url(../images/style1/l_bg.png) repeat-y 100% 0px
+}
+TD.rightbottom.side {
+	BACKGROUND: url(../images/style1/r_bg.png) repeat-y 0px 0px
+}
+TD.leftbottom.side DIV.corner {
+	BACKGROUND: url(../images/style1/l_corner.png) no-repeat 0px 100%
+}
+TD.rightbottom.side DIV.corner {
+	BACKGROUND: url(../images/style1/r_corner.png) no-repeat 100% 100%
+}
+TD.thefoot {
+	BACKGROUND: url(../images/style1/thefoot_bg.png) repeat-x 0px 0px
+}
+TD.thefoot DIV.corner {
+	BACKGROUND: url(../images/style1/thefoot_corner.png) no-repeat 0px 0px
+}
+DIV#vtop {
+	BACKGROUND: url(../images/style1/vtop_divider.png) repeat-x
+}
+DIV#render {
+	BACKGROUND: url(../images/style1/render.jpg) no-repeat 0px 0px; COLOR: =
+#fff
+}
+DIV#mainbody {
+	BACKGROUND: url(../images/style1/body_shadow.png) repeat-x 0px 0px
+}
+.font-selector {
+	BACKGROUND: url(../images/style1/access-select.png) no-repeat
+}
+.width-selector {
+	BACKGROUND: url(../images/style1/access-select.png) no-repeat
+}
+.lrg .button {
+	BACKGROUND: url(../images/style1/access-lrg.png)
+}
+.sml .button {
+	BACKGROUND: url(../images/style1/access-sml.png)
+}
+.med .button {
+	BACKGROUND: url(../images/style1/access-med.png)
+}
+.thin .button {
+	BACKGROUND: url(../images/style1/access-thin.png)
+}
+.wide .button {
+	BACKGROUND: url(../images/style1/access-wide.png)
+}
+DIV#horizmenu {
+	BACKGROUND: url(../images/style1/tbar_bg.png) repeat-x
+}
+BLOCKQUOTE {
+	BACKGROUND: url(../images/style1/quote_open.png) #d9dfd2 no-repeat 0px =
+0px; COLOR: #333
+}
+BLOCKQUOTE DIV {
+	BACKGROUND: url(../images/style1/quote_closed.png) no-repeat 100% 100%
+}
+PRE {
+	BORDER-BOTTOM: #d9dfd2 1px solid; BORDER-LEFT: #d9dfd2 5px solid; =
+BACKGROUND: #fff; COLOR: #333; BORDER-TOP: #d9dfd2 1px solid; =
+BORDER-RIGHT: #d9dfd2 1px solid
+}
+.highlight {
+	BACKGROUND-COLOR: #ffc
+}
+#nav A {
+	COLOR: #fff
+}
+#nav A.topdaddy {
+	BACKGROUND: url(../images/style1/tbar_divider2.png) no-repeat 100% 0px
+}
+#nav LI.active A.topdaddy {
+	BACKGROUND: url(../images/style1/tbar_divider2.png) no-repeat 100% 0px
+}
+#nav UL UL A.daddy {
+	BACKGROUND: url(../images/style1/tbar_divider3.png) no-repeat 100% 50%
+}
+#nav LI A {
+	BACKGROUND: url(../images/style1/tbar_divider.png) no-repeat 100% 0px
+}
+#nav UL LI A:hover {
+	COLOR: #ccc
+}
+#nav UL LI UL LI A:hover {
+	COLOR: #ccc
+}
+#nav UL LI UL LI UL LI A:hover {
+	COLOR: #ccc
+}
+#nav LI LI {
+	BORDER-BOTTOM: #62665c 1px solid; BORDER-TOP: #7d8177 1px solid
+}
+#nav UL UL A {
+	COLOR: #fff
+}
+#nav LI UL {
+	BORDER-BOTTOM: #62665c 1px solid; BORDER-LEFT: #7d8177 1px solid; =
+BORDER-RIGHT: #62665c 1px solid
+}
+#nav LI:hover A {
+	COLOR: #ffffff
+}
+#nav LI.sfhover A {
+	COLOR: #ffffff
+}
+#nav LI LI:hover A {
+	COLOR: #ffffff
+}
+#nav LI LI.sfhover A {
+	COLOR: #ffffff
+}
+#nav LI.active {
+	BACKGROUND: url(../images/style1/tbar_select.png) repeat-x 0px 0px
+}
+#nav LI:hover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI LI:hover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI LI LI:hover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI LI LI LI:hover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI.sfhover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI LI.sfhover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI LI LI.sfhover UL {
+	BACKGROUND: #6f7469
+}
+#nav LI LI LI LI.sfhover UL {
+	BACKGROUND: #6f7469
+}
+SPAN.pathway A {
+	BACKGROUND: url(../images/style1/arrow.png) no-repeat 100% 50%
+}
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.chasanc.com/templates/rt_mobius/js/handleSearchfield.js
+
+function addEvent(obj, evType, fn, useCapture){=0A=
+  if (obj.addEventListener){=0A=
+    obj.addEventListener(evType, fn, useCapture);=0A=
+    return true;=0A=
+  } else if (obj.attachEvent){=0A=
+    var r =3D obj.attachEvent("on"+evType, fn);=0A=
+    return r;=0A=
+  } else {=0A=
+    alert("Handler could not be attached");=0A=
+  }=0A=
+}=0A=
+=0A=
+var DEF_VAL   =3D "Search"; // Default Value=0A=
+var isSafari  =3D ((parseInt(navigator.productSub)>=3D20020000)&&     // =
+detecting WebCore=0A=
+               (navigator.vendor.indexOf("Apple Computer")!=3D-1));=0A=
+=0A=
+function replaceSearchField() {=0A=
+  // Replaces normal input text field with safari's neat search field=0A=
+  if (!document.getElementById) return;=0A=
+  var searchForm  =3D document.getElementById('searchform');=0A=
+  var searchField =3D document.getElementById('s');=0A=
+  if (!searchField) return;=0A=
+  if (isSafari) {=0A=
+    searchForm.className =3D 'issafari';=0A=
+    searchField.setAttribute('type', 'search');=0A=
+    searchField.setAttribute('autosave', 'at.ajaxian.search');=0A=
+    searchField.setAttribute('results', '5');=0A=
+    searchField.setAttribute('placeholder', DEF_VAL);=0A=
+  } else {=0A=
+    addEvent(searchField, 'focus', focusSearch, false);=0A=
+    addEvent(searchField, 'blur',  blurSearch, false);=0A=
+    if (searchField.value=3D=3D'') searchField.value =3D DEF_VAL;=0A=
+  }=0A=
+  =0A=
+}=0A=
+=0A=
+function focusSearch() {=0A=
+  // removes the initial value from the search field=0A=
+  if (this.value=3D=3DDEF_VAL) {=0A=
+    this.value =3D '';=0A=
+    this.setAttribute('class', 'focus');=0A=
+  }=0A=
+}=0A=
+=0A=
+function blurSearch() {=0A=
+  // assigns default value, if no value has been entered=0A=
+  if (this.value=3D=3D'') {=0A=
+    this.value =3D DEF_VAL;=0A=
+    this.removeAttribute('class', 'focus');=0A=
+  }=0A=
+}=0A=
+=0A=
+addEvent(window, 'load', replaceSearchField, false);=0A=
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.google-analytics.com/urchin.js
+
+//-- Google Analytics Urchin Module=0A=
+//-- Copyright 2007 Google, All Rights Reserved.=0A=
+=0A=
+//-- Urchin On Demand Settings ONLY=0A=
+var _uacct=3D"";			// set up the Urchin Account=0A=
+var _userv=3D1;			// service mode (0=3Dlocal,1=3Dremote,2=3Dboth)=0A=
+=0A=
+//-- UTM User Settings=0A=
+var _ufsc=3D1;			// set client info flag (1=3Don|0=3Doff)=0A=
+var _udn=3D"auto";		// (auto|none|domain) set the domain name for cookies=0A=
+var _uhash=3D"on";		// (on|off) unique domain hash for cookies=0A=
+var _utimeout=3D"1800";   	// set the inactive session timeout in seconds=0A=
+var _ugifpath=3D"/__utm.gif";	// set the web path to the __utm.gif file=0A=
+var _utsp=3D"|";			// transaction field separator=0A=
+var _uflash=3D1;			// set flash version detect option (1=3Don|0=3Doff)=0A=
+var _utitle=3D1;			// set the document title detect option =
+(1=3Don|0=3Doff)=0A=
+var _ulink=3D0;			// enable linker functionality (1=3Don|0=3Doff)=0A=
+var _uanchor=3D0;			// enable use of anchors for campaign =
+(1=3Don|0=3Doff)=0A=
+var _utcp=3D"/";			// the cookie path for tracking=0A=
+var _usample=3D100;		// The sampling % of visitors to track (1-100).=0A=
+=0A=
+//-- UTM Campaign Tracking Settings=0A=
+var _uctm=3D1;			// set campaign tracking module (1=3Don|0=3Doff)=0A=
+var _ucto=3D"15768000";		// set timeout in seconds (6 month default)=0A=
+var _uccn=3D"utm_campaign";	// name=0A=
+var _ucmd=3D"utm_medium";		// medium (cpc|cpm|link|email|organic)=0A=
+var _ucsr=3D"utm_source";		// source=0A=
+var _uctr=3D"utm_term";		// term/keyword=0A=
+var _ucct=3D"utm_content";	// content=0A=
+var _ucid=3D"utm_id";		// id number=0A=
+var _ucno=3D"utm_nooverride";	// don't override=0A=
+=0A=
+//-- Auto/Organic Sources and Keywords=0A=
+var _uOsr=3Dnew Array();=0A=
+var _uOkw=3Dnew Array();=0A=
+_uOsr[0]=3D"google";	_uOkw[0]=3D"q";=0A=
+_uOsr[1]=3D"yahoo";	_uOkw[1]=3D"p";=0A=
+_uOsr[2]=3D"msn";		_uOkw[2]=3D"q";=0A=
+_uOsr[3]=3D"aol";		_uOkw[3]=3D"query";=0A=
+_uOsr[4]=3D"aol";		_uOkw[4]=3D"encquery";=0A=
+_uOsr[5]=3D"lycos";	_uOkw[5]=3D"query";=0A=
+_uOsr[6]=3D"ask";		_uOkw[6]=3D"q";=0A=
+_uOsr[7]=3D"altavista";	_uOkw[7]=3D"q";=0A=
+_uOsr[8]=3D"netscape";	_uOkw[8]=3D"query";=0A=
+_uOsr[9]=3D"cnn";	_uOkw[9]=3D"query";=0A=
+_uOsr[10]=3D"looksmart";	_uOkw[10]=3D"qt";=0A=
+_uOsr[11]=3D"about";	_uOkw[11]=3D"terms";=0A=
+_uOsr[12]=3D"mamma";	_uOkw[12]=3D"query";=0A=
+_uOsr[13]=3D"alltheweb";	_uOkw[13]=3D"q";=0A=
+_uOsr[14]=3D"gigablast";	_uOkw[14]=3D"q";=0A=
+_uOsr[15]=3D"voila";	_uOkw[15]=3D"rdata";=0A=
+_uOsr[16]=3D"virgilio";	_uOkw[16]=3D"qs";=0A=
+_uOsr[17]=3D"live";	_uOkw[17]=3D"q";=0A=
+_uOsr[18]=3D"baidu";	_uOkw[18]=3D"wd";=0A=
+_uOsr[19]=3D"alice";	_uOkw[19]=3D"qs";=0A=
+_uOsr[20]=3D"yandex";	_uOkw[20]=3D"text";=0A=
+_uOsr[21]=3D"najdi";	_uOkw[21]=3D"q";=0A=
+_uOsr[22]=3D"aol";	_uOkw[22]=3D"q";=0A=
+_uOsr[23]=3D"club-internet"; _uOkw[23]=3D"query";=0A=
+_uOsr[24]=3D"mama";	_uOkw[24]=3D"query";=0A=
+_uOsr[25]=3D"seznam";	_uOkw[25]=3D"q";=0A=
+_uOsr[26]=3D"search";	_uOkw[26]=3D"q";=0A=
+_uOsr[27]=3D"wp";	_uOkw[27]=3D"szukaj";=0A=
+_uOsr[28]=3D"onet";	_uOkw[28]=3D"qt";=0A=
+_uOsr[29]=3D"netsprint";	_uOkw[29]=3D"q";=0A=
+_uOsr[30]=3D"google.interia";	_uOkw[30]=3D"q";=0A=
+_uOsr[31]=3D"szukacz";	_uOkw[31]=3D"q";=0A=
+_uOsr[32]=3D"yam";	_uOkw[32]=3D"k";=0A=
+_uOsr[33]=3D"pchome";	_uOkw[33]=3D"q";=0A=
+_uOsr[34]=3D"kvasir";	_uOkw[34]=3D"searchExpr";=0A=
+_uOsr[35]=3D"sesam";	_uOkw[35]=3D"q";=0A=
+_uOsr[36]=3D"ozu"; _uOkw[36]=3D"q";=0A=
+_uOsr[37]=3D"terra"; _uOkw[37]=3D"query";=0A=
+_uOsr[38]=3D"nostrum"; _uOkw[38]=3D"query";=0A=
+_uOsr[39]=3D"mynet"; _uOkw[39]=3D"q";=0A=
+_uOsr[40]=3D"ekolay"; _uOkw[40]=3D"q";=0A=
+_uOsr[41]=3D"search.ilse"; _uOkw[41]=3D"search_for";=0A=
+_uOsr[42]=3D"bing"; _uOkw[42]=3D"q";=0A=
+=0A=
+//-- Auto/Organic Keywords to Ignore=0A=
+var _uOno=3Dnew Array();=0A=
+//_uOno[0]=3D"urchin";=0A=
+//_uOno[1]=3D"urchin.com";=0A=
+//_uOno[2]=3D"www.urchin.com";=0A=
+=0A=
+//-- Referral domains to Ignore=0A=
+var _uRno=3Dnew Array();=0A=
+//_uRno[0]=3D".urchin.com";=0A=
+=0A=
+//-- **** Don't modify below this point ***=0A=
+var =
+_uff,_udh,_udt,_ubl=3D0,_udo=3D"",_uu,_ufns=3D0,_uns=3D0,_ur=3D"-",_ufno=3D=
+0,_ust=3D0,_ubd=3Ddocument,_udl=3D_ubd.location,_udlh=3D"",_uwv=3D"1.3";=0A=
+var _ugifpath2=3D"http://www.google-analytics.com/__utm.gif";=0A=
+if (_udl.hash) _udlh=3D_udl.href.substring(_udl.href.indexOf('#'));=0A=
+if (_udl.protocol=3D=3D"https:") =
+_ugifpath2=3D"https://ssl.google-analytics.com/__utm.gif";=0A=
+if (!_utcp || _utcp=3D=3D"") _utcp=3D"/";=0A=
+function urchinTracker(page) {=0A=
+ if (_udl.protocol=3D=3D"file:") return;=0A=
+ if (_uff && (!page || page=3D=3D"")) return;=0A=
+ var a,b,c,xx,v,z,k,x=3D"",s=3D"",f=3D0,nv=3D0;=0A=
+ var nx=3D" expires=3D"+_uNx()+";";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ _udh=3D_uDomain();=0A=
+ if (!_uVG()) return;=0A=
+ _uu=3DMath.round(Math.random()*2147483647);=0A=
+ _udt=3Dnew Date();=0A=
+ _ust=3DMath.round(_udt.getTime()/1000);=0A=
+ a=3Ddc.indexOf("__utma=3D"+_udh+".");=0A=
+ b=3Ddc.indexOf("__utmb=3D"+_udh);=0A=
+ c=3Ddc.indexOf("__utmc=3D"+_udh);=0A=
+ if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ if (_utimeout && _utimeout!=3D"") {=0A=
+  x=3Dnew Date(_udt.getTime()+(_utimeout*1000));=0A=
+  x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ }=0A=
+ if (_ulink) {=0A=
+  if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+  s+=3D_udl.search;=0A=
+  if(s && s!=3D"" && s.indexOf("__utma=3D")>=3D0) {=0A=
+   if (!(_uIN(a=3D_uGC(s,"__utma=3D","&")))) a=3D"-";=0A=
+   if (!(_uIN(b=3D_uGC(s,"__utmb=3D","&")))) b=3D"-";=0A=
+   if (!(_uIN(c=3D_uGC(s,"__utmc=3D","&")))) c=3D"-";=0A=
+   v=3D_uGC(s,"__utmv=3D","&");=0A=
+   z=3D_uGC(s,"__utmz=3D","&");=0A=
+   k=3D_uGC(s,"__utmk=3D","&");=0A=
+   xx=3D_uGC(s,"__utmx=3D","&");=0A=
+   if ((k*1) !=3D ((_uHash(a+b+c+xx+z+v)*1)+(_udh*1))) =
+{_ubl=3D1;a=3D"-";b=3D"-";c=3D"-";xx=3D"-";z=3D"-";v=3D"-";}=0A=
+   if (a!=3D"-" && b!=3D"-" && c!=3D"-") f=3D1;=0A=
+   else if(a!=3D"-") f=3D2;=0A=
+  }=0A=
+ }=0A=
+ if(f=3D=3D1) {=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+c+"; path=3D"+_utcp+";"+_udo;=0A=
+ } else if (f=3D=3D2) {=0A=
+  a=3D_uFixA(s,"&",_ust);=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ } else if (a>=3D0 && b>=3D0 && c>=3D0) {=0A=
+   b =3D _uGC(dc,"__utmb=3D"+_udh,";");=0A=
+   b =3D ("-" =3D=3D b) ? _udh : b;  =0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+ } else {=0A=
+  if (a>=3D0) a=3D_uFixA(_ubd.cookie,";",_ust);=0A=
+  else {=0A=
+   a=3D_udh+"."+_uu+"."+_ust+"."+_ust+"."+_ust+".1";=0A=
+   nv=3D1;=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ }=0A=
+ if (_ulink && xx && xx!=3D"" && xx!=3D"-") {=0A=
+   xx=3D_uUES(xx);=0A=
+   if (xx.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmx=3D"+xx+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ if (_ulink && v && v!=3D"" && v!=3D"-") {=0A=
+  v=3D_uUES(v);=0A=
+  if (v.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmv=3D"+v+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ var wc=3Dwindow;=0A=
+ var c=3D_ubd.cookie;=0A=
+ if(wc && wc.gaGlobal && wc.gaGlobal.dh=3D=3D_udh){=0A=
+  var g=3Dwc.gaGlobal;=0A=
+  var ua=3Dc.split("__utma=3D"+_udh+".")[1].split(";")[0].split(".");=0A=
+  if(g.sid)ua[3]=3Dg.sid;=0A=
+  if(nv>0){=0A=
+   ua[2]=3Dua[3];=0A=
+   if(g.vid){=0A=
+    var v=3Dg.vid.split(".");=0A=
+    ua[0]=3Dv[0];=0A=
+    ua[1]=3Dv[1];=0A=
+   }=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+_udh+"."+ua.join(".")+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ _uInfo(page);=0A=
+ _ufns=3D0;=0A=
+ _ufno=3D0;=0A=
+ if (!page || page=3D=3D"") _uff=3D1;=0A=
+}=0A=
+function _uGH() {=0A=
+ var hid;=0A=
+ var wc=3Dwindow;=0A=
+ if (wc && wc.gaGlobal && wc.gaGlobal.hid) {=0A=
+  hid=3Dwc.gaGlobal.hid;=0A=
+ } else {=0A=
+  hid=3DMath.round(Math.random()*0x7fffffff);=0A=
+  if (!wc.gaGlobal) wc.gaGlobal=3D{};=0A=
+  wc.gaGlobal.hid=3Dhid;=0A=
+ }=0A=
+ return hid;=0A=
+}=0A=
+function _uInfo(page) {=0A=
+ var p,s=3D"",dm=3D"",pg=3D_udl.pathname+_udl.search;=0A=
+ if (page && page!=3D"") pg=3D_uES(page,1);=0A=
+ _ur=3D_ubd.referrer;=0A=
+ if (!_ur || _ur=3D=3D"") { _ur=3D"-"; }=0A=
+ else {=0A=
+  dm=3D_ubd.domain;=0A=
+  if(_utcp && _utcp!=3D"/") dm+=3D_utcp;=0A=
+  p=3D_ur.indexOf(dm);=0A=
+  if ((p>=3D0) && (p<=3D8)) { _ur=3D"0"; }=0A=
+  if (_ur.indexOf("[")=3D=3D0 && =
+_ur.lastIndexOf("]")=3D=3D(_ur.length-1)) { _ur=3D"-"; }=0A=
+ }=0A=
+ s+=3D"&utmn=3D"+_uu;=0A=
+ if (_ufsc) s+=3D_uBInfo();=0A=
+ if (_uctm) s+=3D_uCInfo();=0A=
+ if (_utitle && _ubd.title && _ubd.title!=3D"") =
+s+=3D"&utmdt=3D"+_uES(_ubd.title);=0A=
+ if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ s+=3D"&utmhid=3D"+_uGH();=0A=
+ s+=3D"&utmr=3D"+_ur;=0A=
+ s+=3D"&utmp=3D"+pg;=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uVoid() { return; }=0A=
+function _uCInfo() {=0A=
+ if (!_ucto || _ucto=3D=3D"") { _ucto=3D"15768000"; }=0A=
+ if (!_uVG()) return;=0A=
+ var =
+c=3D"",t=3D"-",t2=3D"-",t3=3D"-",o=3D0,cs=3D0,cn=3D0,i=3D0,z=3D"-",s=3D""=
+;=0A=
+ if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+ s+=3D_udl.search;=0A=
+ var x=3Dnew Date(_udt.getTime()+(_ucto*1000));=0A=
+ var dc=3D_ubd.cookie;=0A=
+ x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ if (_ulink && !_ubl) {=0A=
+  z=3D_uUES(_uGC(s,"__utmz=3D","&"));=0A=
+  if (z!=3D"-" && z.indexOf(";")=3D=3D-1) { =
+_ubd.cookie=3D"__utmz=3D"+z+"; path=3D"+_utcp+";"+x+_udo; return ""; }=0A=
+ }=0A=
+ z=3Ddc.indexOf("__utmz=3D"+_udh+".");=0A=
+ if (z>-1) { z=3D_uGC(dc,"__utmz=3D"+_udh+".",";"); }=0A=
+ else { z=3D"-"; }=0A=
+ t=3D_uGC(s,_ucid+"=3D","&");=0A=
+ t2=3D_uGC(s,_ucsr+"=3D","&");=0A=
+ t3=3D_uGC(s,"gclid=3D","&");=0A=
+ if ((t!=3D"-" && t!=3D"") || (t2!=3D"-" && t2!=3D"") || (t3!=3D"-" && =
+t3!=3D"")) {=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"utmcid=3D"+_uEC(t);=0A=
+  if (t2!=3D"-" && t2!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmcsr=3D"+_uEC(t2); }=0A=
+  if (t3!=3D"-" && t3!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmgclid=3D"+_uEC(t3); }=0A=
+  t=3D_uGC(s,_uccn+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmccn=3D"+_uEC(t);=0A=
+  else c+=3D"|utmccn=3D(not+set)";=0A=
+  t=3D_uGC(s,_ucmd+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcmd=3D"+_uEC(t);=0A=
+  else  c+=3D"|utmcmd=3D(not+set)";=0A=
+  t=3D_uGC(s,_uctr+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmctr=3D"+_uEC(t);=0A=
+  else { t=3D_uOrg(1); if (t!=3D"-" && t!=3D"") =
+c+=3D"|utmctr=3D"+_uEC(t); }=0A=
+  t=3D_uGC(s,_ucct+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcct=3D"+_uEC(t);=0A=
+  t=3D_uGC(s,_ucno+"=3D","&");=0A=
+  if (t=3D=3D"1") o=3D1;=0A=
+  if (z!=3D"-" && o=3D=3D1) return "";=0A=
+ }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { c=3D_uOrg(); if (z!=3D"-" && =
+_ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { if (_ufns=3D=3D1)  c=3D_uRef(); if =
+(z!=3D"-" && _ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") {=0A=
+  if (z=3D=3D"-" && _ufns=3D=3D1) { =
+c=3D"utmccn=3D(direct)|utmcsr=3D(direct)|utmcmd=3D(none)"; }=0A=
+  if (c=3D=3D"-" || c=3D=3D"") return "";=0A=
+ }=0A=
+ if (z!=3D"-") {=0A=
+  i=3Dz.indexOf(".");=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  t=3Dz.substring(i+1,z.length);=0A=
+  if (t.toLowerCase()=3D=3Dc.toLowerCase()) cs=3D1;=0A=
+  t=3Dz.substring(0,i);=0A=
+  if ((i=3Dt.lastIndexOf(".")) > -1) {=0A=
+   t=3Dt.substring(i+1,t.length);=0A=
+   cn=3D(t*1);=0A=
+  }=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) {=0A=
+  t=3D_uGC(dc,"__utma=3D"+_udh+".",";");=0A=
+  if ((i=3Dt.lastIndexOf(".")) > 9) {=0A=
+   _uns=3Dt.substring(i+1,t.length);=0A=
+   _uns=3D(_uns*1);=0A=
+  }=0A=
+  cn++;=0A=
+  if (_uns=3D=3D0) _uns=3D1;=0A=
+  _ubd.cookie=3D"__utmz=3D"+_udh+"."+_ust+"."+_uns+"."+cn+"."+c+"; =
+path=3D"+_utcp+"; "+x+_udo;=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) return "&utmcn=3D1";=0A=
+ else return "&utmcr=3D1";=0A=
+}=0A=
+function _uRef() {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k,n;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  k=3Dh.substring(h.indexOf("/"),h.length);=0A=
+  if (k.indexOf("?") > -1) k=3Dk.substring(0,k.indexOf("?"));=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ h=3Dh.toLowerCase();=0A=
+ n=3Dh;=0A=
+ if ((i=3Dn.indexOf(":")) > -1) n=3Dn.substring(0,i);=0A=
+ for (var ii=3D0;ii<_uRno.length;ii++) {=0A=
+  if ((i=3Dn.indexOf(_uRno[ii].toLowerCase())) > -1 && =
+n.length=3D=3D(i+_uRno[ii].length)) { _ufno=3D1; break; }=0A=
+ }=0A=
+ if (h.indexOf("www.")=3D=3D0) h=3Dh.substring(4,h.length);=0A=
+ return =
+"utmccn=3D(referral)|utmcsr=3D"+_uEC(h)+"|"+"utmcct=3D"+_uEC(k)+"|utmcmd=3D=
+referral";=0A=
+}=0A=
+function _uOrg(t) {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ for (var ii=3D0;ii<_uOsr.length;ii++) {=0A=
+  if (h.toLowerCase().indexOf(_uOsr[ii].toLowerCase()) > -1) {=0A=
+   if ((i=3D_ur.indexOf("?"+_uOkw[ii]+"=3D")) > -1 || =
+(i=3D_ur.indexOf("&"+_uOkw[ii]+"=3D")) > -1) {=0A=
+    k=3D_ur.substring(i+_uOkw[ii].length+2,_ur.length);=0A=
+    if ((i=3Dk.indexOf("&")) > -1) k=3Dk.substring(0,i);=0A=
+    for (var yy=3D0;yy<_uOno.length;yy++) {=0A=
+     if (_uOno[yy].toLowerCase()=3D=3Dk.toLowerCase()) { _ufno=3D1; =
+break; }=0A=
+    }=0A=
+    if (t) return _uEC(k);=0A=
+    else return =
+"utmccn=3D(organic)|utmcsr=3D"+_uEC(_uOsr[ii])+"|"+"utmctr=3D"+_uEC(k)+"|=
+utmcmd=3Dorganic";=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+ return "";=0A=
+}=0A=
+function _uGCse() {=0A=
+ var h,p;=0A=
+ h=3Dp=3D_ur.split("://")[1];=0A=
+ if(h.indexOf("/")>-1) {=0A=
+  h=3Dh.split("/")[0];=0A=
+  p=3Dp.substring(p.indexOf("/")+1,p.length);=0A=
+ }=0A=
+ if(p.indexOf("?")>-1) {=0A=
+  p=3Dp.split("?")[0];=0A=
+ }=0A=
+ if(h.toLowerCase().indexOf("google")>-1) {=0A=
+  if(_ur.indexOf("?q=3D")>-1 || _ur.indexOf("&q=3D")>-1) {=0A=
+   if (p.toLowerCase().indexOf("cse")>-1) {=0A=
+    return true;=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+}=0A=
+function _uBInfo() {=0A=
+ var sr=3D"-",sc=3D"-",ul=3D"-",fl=3D"-",cs=3D"-",je=3D1;=0A=
+ var n=3Dnavigator;=0A=
+ if (self.screen) {=0A=
+  sr=3Dscreen.width+"x"+screen.height;=0A=
+  sc=3Dscreen.colorDepth+"-bit";=0A=
+ } else if (self.java) {=0A=
+  var j=3Djava.awt.Toolkit.getDefaultToolkit();=0A=
+  var s=3Dj.getScreenSize();=0A=
+  sr=3Ds.width+"x"+s.height;=0A=
+ }=0A=
+ if (n.language) { ul=3Dn.language.toLowerCase(); }=0A=
+ else if (n.browserLanguage) { ul=3Dn.browserLanguage.toLowerCase(); }=0A=
+ je=3Dn.javaEnabled()?1:0;=0A=
+ if (_uflash) fl=3D_uFlash();=0A=
+ if (_ubd.characterSet) cs=3D_uES(_ubd.characterSet);=0A=
+ else if (_ubd.charset) cs=3D_uES(_ubd.charset);=0A=
+ return =
+"&utmcs=3D"+cs+"&utmsr=3D"+sr+"&utmsc=3D"+sc+"&utmul=3D"+ul+"&utmje=3D"+j=
+e+"&utmfl=3D"+fl;=0A=
+}=0A=
+function __utmSetTrans() {=0A=
+ var e;=0A=
+ if (_ubd.getElementById) e=3D_ubd.getElementById("utmtrans");=0A=
+ else if (_ubd.utmform && _ubd.utmform.utmtrans) =
+e=3D_ubd.utmform.utmtrans;=0A=
+ if (!e) return;=0A=
+ var l=3De.value.split("UTM:");=0A=
+ var i,i2,c;=0A=
+ if (_userv=3D=3D0 || _userv=3D=3D2) i=3Dnew Array();=0A=
+ if (_userv=3D=3D1 || _userv=3D=3D2) { i2=3Dnew Array(); c=3D_uGCS(); }=0A=
+=0A=
+ for (var ii=3D0;ii<l.length;ii++) {=0A=
+  l[ii]=3D_uTrim(l[ii]);=0A=
+  if (l[ii].charAt(0)!=3D'T' && l[ii].charAt(0)!=3D'I') continue;=0A=
+  var r=3DMath.round(Math.random()*2147483647);=0A=
+  if (!_utsp || _utsp=3D=3D"") _utsp=3D"|";=0A=
+  var f=3Dl[ii].split(_utsp),s=3D"";=0A=
+  if (f[0].charAt(0)=3D=3D'T') {=0A=
+   s=3D"&utmt=3Dtran"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmtst=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmtto=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmttx=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmtsp=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmtci=3D"+_uES(f[6]);=0A=
+   f[7]=3D_uTrim(f[7]); if(f[7]&&f[7]!=3D"") =
+s+=3D"&utmtrg=3D"+_uES(f[7]);=0A=
+   f[8]=3D_uTrim(f[8]); if(f[8]&&f[8]!=3D"") =
+s+=3D"&utmtco=3D"+_uES(f[8]);=0A=
+  } else {=0A=
+   s=3D"&utmt=3Ditem"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmipc=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmipn=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmiva=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmipr=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmiqt=3D"+_uES(f[6]);=0A=
+  }=0A=
+  if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+  if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+=0A=
+  if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+   i[ii]=3Dnew Image(1,1);=0A=
+   i[ii].src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+   i[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+  if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+   i2[ii]=3Dnew Image(1,1);=0A=
+   =
+i2[ii].src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D=
+"+c;=0A=
+   i2[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uFlash() {=0A=
+ var f=3D"-",n=3Dnavigator;=0A=
+ if (n.plugins && n.plugins.length) {=0A=
+  for (var ii=3D0;ii<n.plugins.length;ii++) {=0A=
+   if (n.plugins[ii].name.indexOf('Shockwave Flash')!=3D-1) {=0A=
+    f=3Dn.plugins[ii].description.split('Shockwave Flash ')[1];=0A=
+    break;=0A=
+   }=0A=
+  }=0A=
+ } else {=0A=
+  var fl;=0A=
+  try {=0A=
+   fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");=0A=
+   f =3D fl.GetVariable("$version");=0A=
+  } catch(e) {}=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");=0A=
+    f =3D "WIN 6,0,21,0";=0A=
+    fl.AllowScriptAccess =3D "always";=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash");=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f !=3D "-") {=0A=
+   f =3D f.split(" ")[1].split(",");=0A=
+   f =3D f[0] + "." + f[1] + " r" + f[2];=0A=
+  }=0A=
+ }=0A=
+ return f;=0A=
+}=0A=
+function __utmLinkerUrl(l,h) {=0A=
+ var p,k,a=3D"-",b=3D"-",c=3D"-",x=3D"-",z=3D"-",v=3D"-";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ var iq =3D l.indexOf("?");=0A=
+ var ih =3D l.indexOf("#");=0A=
+ var url=3Dl;=0A=
+ if (dc) {=0A=
+  a=3D_uES(_uGC(dc,"__utma=3D"+_udh+".",";"));=0A=
+  b=3D_uES(_uGC(dc,"__utmb=3D"+_udh,";"));=0A=
+  c=3D_uES(_uGC(dc,"__utmc=3D"+_udh,";"));=0A=
+  x=3D_uES(_uGC(dc,"__utmx=3D"+_udh,";"));=0A=
+  z=3D_uES(_uGC(dc,"__utmz=3D"+_udh+".",";"));=0A=
+  v=3D_uES(_uGC(dc,"__utmv=3D"+_udh+".",";"));=0A=
+  k=3D(_uHash(a+b+c+x+z+v)*1)+(_udh*1);=0A=
+  =
+p=3D"__utma=3D"+a+"&__utmb=3D"+b+"&__utmc=3D"+c+"&__utmx=3D"+x+"&__utmz=3D=
+"+z+"&__utmv=3D"+v+"&__utmk=3D"+k;=0A=
+ }=0A=
+ if (p) {=0A=
+  if (h && ih>-1) return;=0A=
+  if (h) { url=3Dl+"#"+p; }=0A=
+  else {=0A=
+   if (iq=3D=3D-1 && ih=3D=3D-1) url=3Dl+"?"+p;=0A=
+   else if (ih=3D=3D-1) url=3Dl+"&"+p;=0A=
+   else if (iq=3D=3D-1) url=3Dl.substring(0,ih-1)+"?"+p+l.substring(ih);=0A=
+   else url=3Dl.substring(0,ih-1)+"&"+p+l.substring(ih);=0A=
+  }=0A=
+ }=0A=
+ return url;=0A=
+}=0A=
+function __utmLinker(l,h) {=0A=
+ if (!_ulink || !l || l=3D=3D"") return;=0A=
+ _udl.href=3D__utmLinkerUrl(l,h);=0A=
+}=0A=
+function __utmLinkPost(f,h) {=0A=
+ if (!_ulink || !f || !f.action) return;=0A=
+ f.action=3D__utmLinkerUrl(f.action, h);=0A=
+ return;=0A=
+}=0A=
+function __utmSetVar(v) {=0A=
+ if (!v || v=3D=3D"") return;=0A=
+ if (!_udo || _udo =3D=3D "") {=0A=
+  _udh=3D_uDomain();=0A=
+  if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ }=0A=
+ if (!_uVG()) return;=0A=
+ var r=3DMath.round(Math.random() * 2147483647);=0A=
+ _ubd.cookie=3D"__utmv=3D"+_udh+"."+_uES(v)+"; path=3D"+_utcp+"; =
+expires=3D"+_uNx()+";"+_udo;=0A=
+ var s=3D"&utmt=3Dvar&utmn=3D"+r;=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+}=0A=
+function _uGCS() {=0A=
+ var t,c=3D"",dc=3D_ubd.cookie;=0A=
+ if ((t=3D_uGC(dc,"__utma=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utma=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmx=3D"+_udh,";"))!=3D"-") =
+c+=3D_uES("__utmx=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmz=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmz=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmv=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmv=3D"+t+";");=0A=
+ if (c.charAt(c.length-1)=3D=3D"+") c=3Dc.substring(0,c.length-1);=0A=
+ return c;=0A=
+}=0A=
+function _uGC(l,n,s) {=0A=
+ if (!l || l=3D=3D"" || !n || n=3D=3D"" || !s || s=3D=3D"") return "-";=0A=
+ var i,i2,i3,c=3D"-";=0A=
+ i=3Dl.indexOf(n);=0A=
+ i3=3Dn.indexOf("=3D")+1;=0A=
+ if (i > -1) {=0A=
+  i2=3Dl.indexOf(s,i); if (i2 < 0) { i2=3Dl.length; }=0A=
+  c=3Dl.substring((i+i3),i2);=0A=
+ }=0A=
+ return c;=0A=
+}=0A=
+function _uDomain() {=0A=
+ if (!_udn || _udn=3D=3D"" || _udn=3D=3D"none") { _udn=3D""; return 1; }=0A=
+ if (_udn=3D=3D"auto") {=0A=
+  var d=3D_ubd.domain;=0A=
+  if (d.substring(0,4)=3D=3D"www.") {=0A=
+   d=3Dd.substring(4,d.length);=0A=
+  }=0A=
+  _udn=3Dd;=0A=
+ }=0A=
+ _udn =3D _udn.toLowerCase(); =0A=
+ if (_uhash=3D=3D"off") return 1;=0A=
+ return _uHash(_udn);=0A=
+}=0A=
+function _uHash(d) {=0A=
+ if (!d || d=3D=3D"") return 1;=0A=
+ var h=3D0,g=3D0;=0A=
+ for (var i=3Dd.length-1;i>=3D0;i--) {=0A=
+  var c=3DparseInt(d.charCodeAt(i));=0A=
+  h=3D((h << 6) & 0xfffffff) + c + (c << 14);=0A=
+  if ((g=3Dh & 0xfe00000)!=3D0) h=3D(h ^ (g >> 21));=0A=
+ }=0A=
+ return h;=0A=
+}=0A=
+function _uFixA(c,s,t) {=0A=
+ if (!c || c=3D=3D"" || !s || s=3D=3D"" || !t || t=3D=3D"") return "-";=0A=
+ var a=3D_uGC(c,"__utma=3D"+_udh+".",s);=0A=
+ var lt=3D0,i=3D0;=0A=
+ if ((i=3Da.lastIndexOf(".")) > 9) {=0A=
+  _uns=3Da.substring(i+1,a.length);=0A=
+  _uns=3D(_uns*1)+1;=0A=
+  a=3Da.substring(0,i);=0A=
+  if ((i=3Da.lastIndexOf(".")) > 7) {=0A=
+   lt=3Da.substring(i+1,a.length);=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  if ((i=3Da.lastIndexOf(".")) > 5) {=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  a+=3D"."+lt+"."+t+"."+_uns;=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+function _uTrim(s) {=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  while ((s.charAt(0)=3D=3D' ') || (s.charAt(0)=3D=3D'\n') || =
+(s.charAt(0,1)=3D=3D'\r')) s=3Ds.substring(1,s.length);=0A=
+  while ((s.charAt(s.length-1)=3D=3D' ') || =
+(s.charAt(s.length-1)=3D=3D'\n') || (s.charAt(s.length-1)=3D=3D'\r')) =
+s=3Ds.substring(0,s.length-1);=0A=
+  return s;=0A=
+}=0A=
+function _uEC(s) {=0A=
+  var n=3D"";=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  for (var i=3D0;i<s.length;i++) {if (s.charAt(i)=3D=3D" ") n+=3D"+"; =
+else n+=3Ds.charAt(i);}=0A=
+  return n;=0A=
+}=0A=
+function __utmVisitorCode(f) {=0A=
+ var r=3D0,t=3D0,i=3D0,i2=3D0,m=3D31;=0A=
+ var a=3D_uGC(_ubd.cookie,"__utma=3D"+_udh+".",";");=0A=
+ if ((i=3Da.indexOf(".",0))<0) return;=0A=
+ if ((i2=3Da.indexOf(".",i+1))>0) r=3Da.substring(i+1,i2); else return =
+"";  =0A=
+ if ((i=3Da.indexOf(".",i2+1))>0) t=3Da.substring(i2+1,i); else return =
+"";  =0A=
+ if (f) {=0A=
+  return r;=0A=
+ } else {=0A=
+  var c=3Dnew =
+Array('A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T'=
+,'U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9');=0A=
+  return =
+c[r>>28&m]+c[r>>23&m]+c[r>>18&m]+c[r>>13&m]+"-"+c[r>>8&m]+c[r>>3&m]+c[((r=
+&7)<<2)+(t>>30&3)]+c[t>>25&m]+c[t>>20&m]+"-"+c[t>>15&m]+c[t>>10&m]+c[t>>5=
+&m]+c[t&m];=0A=
+ }=0A=
+}=0A=
+function _uIN(n) {=0A=
+ if (!n) return false;=0A=
+ for (var i=3D0;i<n.length;i++) {=0A=
+  var c=3Dn.charAt(i);=0A=
+  if ((c<"0" || c>"9") && (c!=3D".")) return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uES(s,u) {=0A=
+ if (typeof(encodeURIComponent) =3D=3D 'function') {=0A=
+  if (u) return encodeURI(s);=0A=
+  else return encodeURIComponent(s);=0A=
+ } else {=0A=
+  return escape(s);=0A=
+ }=0A=
+}=0A=
+function _uUES(s) {=0A=
+ if (typeof(decodeURIComponent) =3D=3D 'function') {=0A=
+  return decodeURIComponent(s);=0A=
+ } else {=0A=
+  return unescape(s);=0A=
+ }=0A=
+}=0A=
+function _uVG() {=0A=
+ if((_udn.indexOf("www.google.") =3D=3D 0 || _udn.indexOf(".google.") =
+=3D=3D 0 || _udn.indexOf("google.") =3D=3D 0) && _utcp=3D=3D'/' && =
+_udn.indexOf("google.org")=3D=3D-1) {=0A=
+  return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uSP() {=0A=
+ var s=3D100;=0A=
+ if (_usample) s=3D_usample;=0A=
+ if(s>=3D100 || s<=3D0) return true;=0A=
+ return ((__utmVisitorCode(1)%10000)<(s*100));=0A=
+}=0A=
+function urchinPathCopy(p){=0A=
+ var d=3Ddocument,nx,tx,sx,i,c,cs,t,h,o;=0A=
+ cs=3Dnew Array("a","b","c","v","x","z");=0A=
+ h=3D_uDomain(); if (_udn && _udn!=3D"") o=3D" domain=3D"+_udn+";";=0A=
+ nx=3D_uNx()+";";=0A=
+ tx=3Dnew Date(); tx.setTime(tx.getTime()+(_utimeout*1000));=0A=
+ tx=3Dtx.toGMTString()+";";=0A=
+ sx=3Dnew Date(); sx.setTime(sx.getTime()+(_ucto*1000));=0A=
+ sx=3Dsx.toGMTString()+";";=0A=
+ for (i=3D0;i<6;i++){=0A=
+  t=3D" expires=3D";=0A=
+  if (i=3D=3D1) t+=3Dtx; else if (i=3D=3D2) t=3D""; else if (i=3D=3D5) =
+t+=3Dsx; else t+=3Dnx;=0A=
+  c=3D_uGC(d.cookie,"__utm"+cs[i]+"=3D"+h,";");=0A=
+  if (c!=3D"-") d.cookie=3D"__utm"+cs[i]+"=3D"+c+"; path=3D"+p+";"+t+o;=0A=
+ }=0A=
+}=0A=
+function _uCO() {=0A=
+ if (!_utk || _utk=3D=3D"" || _utk.length<10) return;=0A=
+ var d=3D'www.google.com';=0A=
+ if (_utk.charAt(0)=3D=3D'!') d=3D'analytics.corp.google.com';=0A=
+ _ubd.cookie=3D"GASO=3D"+_utk+"; path=3D"+_utcp+";"+_udo;=0A=
+ var sc=3Ddocument.createElement('script');=0A=
+ sc.type=3D'text/javascript';=0A=
+ sc.id=3D"_gasojs";=0A=
+ =
+sc.src=3D'https://'+d+'/analytics/reporting/overlay_js?gaso=3D'+_utk+'&'+=
+Math.random();=0A=
+ document.getElementsByTagName('head')[0].appendChild(sc);  =0A=
+}=0A=
+function _uGT() {=0A=
+ var h=3Dlocation.hash, a;=0A=
+ if (h && h!=3D"" && h.indexOf("#gaso=3D")=3D=3D0) {=0A=
+  a=3D_uGC(h,"gaso=3D","&");=0A=
+ } else {=0A=
+  a=3D_uGC(_ubd.cookie,"GASO=3D",";");=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+var _utk=3D_uGT();=0A=
+if (_utk && _utk!=3D"" && _utk.length>10 && _utk.indexOf("=3D")=3D=3D-1) =
+{=0A=
+ if (window.addEventListener) {=0A=
+  window.addEventListener('load', _uCO, false); =0A=
+ } else if (window.attachEvent) { =0A=
+  window.attachEvent('onload', _uCO);=0A=
+ }=0A=
+}=0A=
+=0A=
+function _uNx() {=0A=
+  return (new Date((new Date()).getTime()+63072000000)).toGMTString();=0A=
+}=0A=
+
+------=_NextPart_000_0000_01CAB8BA.5BBC37D0--
