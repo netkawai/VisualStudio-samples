@@ -10,8 +10,6 @@ namespace WpfApp1
         public static void Main()
         {
 
-            global::WinRT.ComWrappersSupport.InitializeComWrappers();
-
             System.Windows.Application app = new System.Windows.Application();
             app.StartupUri = new System.Uri("MainWindow.xaml", System.UriKind.Relative);
             app.Run();
