@@ -36,4 +36,4 @@ WPF/Winform in .NET are now MIT, it means, Microsoft will not add any new UI com
 
 As of 2021-12-20, Microsoft does not have any killer Store App(MSIX package APP)s, even Desktop Office are single EXE due to compatibility and plugin. basically smartphone app will not have plugin/add-on nor  non-connected environment
 
-Windows 10 Mobile is dead, Cortana is dead.. 
+Windows 10 Mobile is dead, Ad Monetization platform is dea, Cortana is dead.. 
