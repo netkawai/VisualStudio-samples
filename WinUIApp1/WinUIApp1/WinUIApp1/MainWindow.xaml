@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
         <canvas:CanvasControl Grid.Row="0" Grid.Column="0" Draw="CanvasControl_Draw" ClearColor="CornflowerBlue"/>
         <Button x:Name="myButton" Grid.Row="1" Grid.Column="0" Click="myButton_Click">Click Me</Button>
+        <Button x:Name="nextButton" Grid.Row="1" Grid.Column="1" Click="nextButton_Click">Click Me on Another</Button>
 
     </Grid>
 

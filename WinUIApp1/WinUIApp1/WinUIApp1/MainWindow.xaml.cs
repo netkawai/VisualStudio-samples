@@ -14,6 +14,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Web.Http.Filters;
+using Windows.Security.Cryptography.Certificates;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -30,10 +32,56 @@ namespace WinUIApp1
             this.InitializeComponent();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private async void myButton_Click(object sender, RoutedEventArgs e)
         {
             myButton.Content = "Clicked";
+
+            // Try to use UWP API (Windows.Web)
+            var baseFilter = new HttpBaseProtocolFilter();
+#if DEBUG
+            baseFilter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Expired);
+            baseFilter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
+            baseFilter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
+#endif
+            var uri = new System.Uri("https://www.bing.com");
+            using (var httpClient = new Windows.Web.Http.HttpClient(baseFilter))
+            {
+                // Always catch network exceptions for async methods
+                try
+                {
+                    string result = await httpClient.GetStringAsync(uri);
+                }
+                catch (Exception ex)
+                {
+                    // Details in ex.Message and ex.HResult.
+                }
+            }
         }
+
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            // This is a pure .NET (Syste.NET)
+            var uri = new System.Uri("https://www.bing.com");
+            var handler = new System.Net.Http.HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = System.Net.Http.HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            };
+
+            using (var http = new System.Net.Http.HttpClient(handler))
+            {
+                // Always catch network exceptions for async methods
+                try
+                {
+                    var res = http.GetAsync(uri);
+                }
+                catch (Exception ex)
+                {
+                    // Details in ex.Message and ex.HResult.
+                }
+
+            }
+        }
+
 
         void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
