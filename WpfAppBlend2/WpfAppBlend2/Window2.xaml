@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfAppBlend2.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppBlend2"
+        mc:Ignorable="d"
+        Title="Window2" Height="353" Width="662">
+    <Grid>
+        <DocumentViewer x:Name="documentViewer1">
+            <FixedDocument>
+                <PageContent>
+                    <!-- 7" x 9" page -->
+                    <FixedPage Width="672" Height="864">
+                        <StackPanel Orientation="Vertical" FixedPage.Left="280" FixedPage.Top="150">
+                            <Label FontFamily="Arial" FontWeight="Bold" FontSize="18" Content="Jane Eyre" HorizontalAlignment="Center"/>
+                            <Label FontFamily="Arial" FontStyle="Italic" FontSize="14" Content="Charlotte Brontë" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </FixedPage>
+                </PageContent>
+                <PageContent>
+                    <FixedPage Width="672" Height="864">
+                        <StackPanel Margin="48">
+                            <TextBlock FontFamily="Cambria" FontSize="14" Width="576" TextWrapping="Wrap">
+                    There was no possibility etc.
+                            </TextBlock>
+                            <TextBlock FontFamily="Cambria" FontSize="14" Width="576" TextWrapping="Wrap" Margin="0,25,0,0">
+                    I was glad of it etc.
+                            </TextBlock>
+                            <Image Margin="0,25,0,0" Source="rocket.jpg" />
+                        </StackPanel>
+                    </FixedPage>
+                </PageContent>
+            </FixedDocument>
+        </DocumentViewer>
+    </Grid>
+</Window>
