@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="80f31fb9-8d39-46d1-97a1-55a8b6518958"
-    Publisher="CN=Kawai"
+    Name="41349d1a-2720-422e-aadf-b2d503029e2c"
+    Publisher="CN=makaxa"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>WinUIApp1 (Package)</DisplayName>
-    <PublisherDisplayName>Kawai</PublisherDisplayName>
-    <Logo>Images\StoreLogo.png</Logo>
+    <DisplayName>WinUI3CApp</DisplayName>
+    <PublisherDisplayName>makaxa</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -31,13 +31,13 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="WinUIApp1 (Package)"
-        Description="WinUIApp1 (Package)"
+        DisplayName="WinUI3CApp"
+        Description="WinUI3CApp"
         BackgroundColor="transparent"
-        Square150x150Logo="Images\Square150x150Logo.png"
-        Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Images\SplashScreen.png" />
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
