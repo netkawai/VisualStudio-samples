@@ -1,7 +1,0 @@
-﻿<Application
-    x:Class="UwpApp1.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpApp1">
-
-</Application>

@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "SimpleWin32.h"
+#include <appmodel.h>
 
 #define MAX_LOADSTRING 100
 
@@ -17,6 +18,45 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+int GetPackageName()
+{
+    UINT32 length = 0;
+    TCHAR buf[255];
+
+    LONG rc = GetCurrentPackageFullName(&length, NULL);
+    if (rc != ERROR_INSUFFICIENT_BUFFER)
+    {
+        if (rc == APPMODEL_ERROR_NO_PACKAGE)
+            OutputDebugString(L"Process has no package identity\n");
+        else
+        {
+            wsprintf(buf, L"Error %d in GetCurrentPackageFullName\n", rc);
+            OutputDebugString(buf);
+        }
+        return 1;
+    }
+
+    PWSTR fullName = (PWSTR)malloc(length * sizeof(*fullName));
+    if (fullName == NULL)
+    {
+        OutputDebugString(L"Error allocating memory\n");
+        return 2;
+    }
+
+    rc = GetCurrentPackageFullName(&length, fullName);
+    if (rc != ERROR_SUCCESS)
+    {
+        wsprintf(buf, L"Error %d retrieving PackageFullName\n", rc);
+        OutputDebugString(buf);
+        return 3;
+    }
+    wsprintf(buf, L"Package Full Name: %s\n", fullName);
+    OutputDebugString(buf);
+
+    free(fullName);
+    return 0;
+}
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
@@ -26,6 +66,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: Place code here.
+    // Wait Debugger for MSIX-package
+    while (!::IsDebuggerPresent())
+        ::Sleep(100); // to avoid 100% CPU load
+
+    GetPackageName();
+
 
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
