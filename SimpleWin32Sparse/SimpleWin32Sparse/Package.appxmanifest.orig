@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
   IgnorableNamespaces="uap rescap">
 
   <Identity
@@ -18,7 +18,8 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.19041.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
   </Dependencies>
 
   <Resources>
@@ -27,9 +28,8 @@
 
   <Applications>
     <Application Id="App"
-      Executable="SimpleWin32Sparse.exe"
-      uap10:TrustLevel="mediumIL" 
-	  uap10:RuntimeBehavior="win32App">
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
       <uap:VisualElements
         DisplayName="SimpleWin32Sparse"
         Description="SimpleWin32Sparse"
@@ -43,7 +43,6 @@
   </Applications>
 
   <Capabilities>
-    <rescap:Capability Name="unvirtualizedResources"/>
     <Capability Name="internetClient" />
     <rescap:Capability Name="runFullTrust" />
   </Capabilities>
