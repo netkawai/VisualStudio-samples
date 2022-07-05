@@ -18,10 +18,10 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int GetPackageName()
+int GetPackageName(WCHAR *package)
 {
     UINT32 length = 0;
-    TCHAR buf[255];
+    WCHAR buf[255];
 
     LONG rc = GetCurrentPackageFullName(&length, NULL);
     if (rc != ERROR_INSUFFICIENT_BUFFER)
@@ -53,6 +53,7 @@ int GetPackageName()
     wsprintf(buf, L"Package Full Name: %s\n", fullName);
     OutputDebugString(buf);
 
+    lstrcpyW(package, fullName);
     free(fullName);
     return 0;
 }
@@ -65,16 +66,27 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+
     // TODO: Place code here.
     // Wait Debugger for MSIX-package
+#if 0
     while (!::IsDebuggerPresent())
         ::Sleep(100); // to avoid 100% CPU load
+#endif
+    WCHAR buf[255] = { 0 };
 
-    GetPackageName();
-
+    if (GetPackageName(buf))
+    {
+        lstrcpyW(szTitle, L"No Package Mode");
+    }
+    else
+    {
+        lstrcpyW(szTitle, buf);
+    }
 
     // Initialize global strings
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+    //LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+
     LoadStringW(hInstance, IDC_SIMPLEWIN32, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
