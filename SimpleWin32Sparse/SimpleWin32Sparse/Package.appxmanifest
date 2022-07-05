@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="fcf83f45-78da-4c65-a673-1397d73bf6fc"
-    Publisher="CN=makaxa"
+    Name="4a634a08-5b2e-440e-94f4-d476027ddc69"
+    Publisher="CN=netkawai"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>SimpleWapProj</DisplayName>
-    <PublisherDisplayName>makaxa</PublisherDisplayName>
+    <DisplayName>SimpleWin32Sparse</DisplayName>
+    <PublisherDisplayName>netkawai</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="SimpleWapProj"
-        Description="SimpleWapProj"
+        DisplayName="SimpleWin32Sparse"
+        Description="SimpleWin32Sparse"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
