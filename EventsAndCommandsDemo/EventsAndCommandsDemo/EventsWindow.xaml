@@ -1,0 +1,14 @@
+﻿<Window x:Class="EventsAndCommandsDemo.EventsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Events window" Height="300" Width="300">
+    <Grid Name="m_Grid" PreviewMouseLeftButtonDown="GridPreviewMouseDownHandler">
+        <TextBlock Text="Check the Output Window in VS for activity" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Name="m_Button" Click="myButton_Click" Width="150" Height="75">
+            <StackPanel Orientation="Horizontal">
+                <Image Name="m_Image" MouseLeftButtonDown="ImageElementMouseDown" Source="Logo.bmp" Width="50" Height="50" Stretch="Uniform" Margin="10" />
+                <TextBlock Name="m_Text" Text="Click Me" TextElement.FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

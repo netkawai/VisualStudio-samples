@@ -1,0 +1,9 @@
+﻿<Window x:Class="CustomCommandsDemo.SimpleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Simple View" Height="124" Width="215">
+    <Grid>
+        <Button Command="{Binding CookDinnerCommand}" CommandParameter="Dinner is served!" Height="23" Margin="9,12,14,0" Name="m_InvokeCookDinnerButton" VerticalAlignment="Top">Cook Dinner</Button>
+        <Button Click="OnAddHandler" Margin="9,48,14,0" Name="m_AddHandlerButton" Height="23" VerticalAlignment="Top">Add Cook Dinner Handler</Button>
+    </Grid>
+</Window>

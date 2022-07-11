@@ -1,0 +1,32 @@
+﻿<Window x:Class="EventsAndCommandsDemo.CommandWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:EventsAndCommandsDemo"
+    Title="CommandWindow" Height="367" Width="514">
+    <!--<Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" CanExecute="WindowCanExecuteHandler" Executed="WindowExecutedHandler"/>
+    </Window.CommandBindings>-->
+    <DockPanel>
+        <Menu Name="m_MainMenu" DockPanel.Dock="Top" Height="23" >
+            <MenuItem Header="_File">
+                <MenuItem Header="_Save" Command="ApplicationCommands.Save"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar Name="m_MainToolbar" DockPanel.Dock="Top" Height="26">
+            <Button Height="23" 
+                    Width="75" Command="ApplicationCommands.Save">Save</Button>
+        </ToolBar>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label>Some input at Window level: </Label>
+            <TextBox Name="WindowTextBox" DockPanel.Dock="Top" Height="25" Width="150"/>
+            <Button Command="Save" 
+                    CommandTarget="{Binding ElementName=uc1}"
+                    Width="75" Height="25">Save</Button>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <local:CommandChildUserControl x:Name="uc1" BorderBrush="Blue" BorderThickness="3"/>
+            <local:CommandChildUserControl x:Name="uc2" BorderBrush="Red" BorderThickness="3"/>
+        </StackPanel>
+    </DockPanel>
+</Window>
