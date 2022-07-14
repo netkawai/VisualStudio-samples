@@ -28,7 +28,6 @@ namespace WinUIApp1
     public partial class App : Application
     {
 
-#if false
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -50,7 +49,7 @@ namespace WinUIApp1
         }
 
         private Window m_window;
-#endif
+#if false
         private static Window startupWindow;
         // Get the initial window created for this app
         // On UWP, this is simply Window.Current
@@ -257,6 +256,6 @@ namespace WinUIApp1
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
-
+#endif
     }
 }
