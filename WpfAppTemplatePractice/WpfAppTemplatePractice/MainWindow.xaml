@@ -10,13 +10,69 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Border BorderThickness="15" Background="LightBlue" BorderBrush="Black">
-        <StackPanel Background="White" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <TextBlock Margin="20,0,20,0" FontSize="18" HorizontalAlignment="Center" Text="Alignment, Margin and Padding Sample" />
-            <Button HorizontalAlignment="Left" Content="Button 1" Margin="20"/>
-            <Button HorizontalAlignment="Right" Content="Button 2" Margin="10" />
-            <Button HorizontalAlignment="Stretch" Margin="0" Content="Button3" />
-        </StackPanel>
-    </Border>
+    <StackPanel>
+        <Border
+            Background="LightBlue"
+            BorderBrush="Black"
+            BorderThickness="15">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Background="White">
+                <TextBlock
+                    Margin="20,0,20,0"
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    Text="Alignment, Margin and Padding Sample" />
+                <Button
+                    Margin="20"
+                    HorizontalAlignment="Left"
+                    Content="Button 1" />
+                <Button
+                    Margin="10,0"
+                    HorizontalAlignment="Right"
+                    Content="Button 2" />
+                <Button
+                    Margin="0,20"
+                    HorizontalAlignment="Right"
+                    Content="Button3" />
+                <Button
+                    Margin="10,50,0,10"
+                    HorizontalAlignment="Left"
+                    Content="Button3" />
+                <Button
+                    Margin="0"
+                    HorizontalAlignment="Stretch"
+                    Content="Button3" />
+            </StackPanel>
+        </Border>
+        <ListView
+            x:Name="SortBy"
+            Grid.Column="0"
+            ItemsSource="{Binding ClassroomStudents}"
+            VirtualizingPanel.VirtualizationMode="Recycling">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="80" Header="ID">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=ID, Mode=OneWay}" />
 
+                                <!--<Label Content="{Binding}"></Label>-->
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="80" Header="Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding Students, RelativeSource={RelativeSource AncestorType=local:MainWindow}}" SelectedValue="{Binding Path=Name, Mode=TwoWay}" />
+                                <!--<Label Content="{Binding}"></Label>-->
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
 </Window>
