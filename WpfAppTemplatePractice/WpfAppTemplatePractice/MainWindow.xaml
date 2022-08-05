@@ -44,6 +44,7 @@
                     Margin="0"
                     HorizontalAlignment="Stretch"
                     Content="Button3" />
+                <ToggleButton Style="{DynamicResource ToggleButtonStyle1}" Content="toggle" />
             </StackPanel>
         </Border>
         <ListView
