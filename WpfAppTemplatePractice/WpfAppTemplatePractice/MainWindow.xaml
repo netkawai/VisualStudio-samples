@@ -75,5 +75,19 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TabControl Style="{DynamicResource TabControlStyle}">
+            <TabItem Header="All">
+                <TextBlock Text="all emails go here." />
+            </TabItem>
+            <TabItem Style="{DynamicResource TabItemStyle1}" Header="Unread">
+                <TextBlock Text="unread emails go here." />
+            </TabItem>
+            <TabItem Header="Flagged">
+                <TextBlock Text="flagged emails go here." />
+            </TabItem>
+            <TabItem Header="Urgent">
+                <TextBlock Text="urgent emails go here." />
+            </TabItem>
+        </TabControl>
     </StackPanel>
 </Window>

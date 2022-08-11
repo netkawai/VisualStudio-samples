@@ -9,6 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Style/ComboBoxStyle.xaml" />
                 <ResourceDictionary Source="Style/ToggleButtonStyle.xaml" />
+                <ResourceDictionary Source="Style/TabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
