@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Runtime.InteropServices;
 #nullable enable
 
 namespace ConsoleAppWithNewCompiler
@@ -16,7 +16,11 @@ namespace ConsoleAppWithNewCompiler
     {
         public static void PrintStudent(Student student)
         {
+			
+			Console.WriteLine(RuntimeInformation.FrameworkDescription);
 
+			Console.Write("\npress any key to continue...");
+			Console.ReadKey();
             // simple nullable check in compiler analysis
             string name = null;
             var myName = name.ToString();

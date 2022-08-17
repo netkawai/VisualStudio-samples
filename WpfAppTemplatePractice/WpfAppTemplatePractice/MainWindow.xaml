@@ -44,7 +44,8 @@
                     Margin="0"
                     HorizontalAlignment="Stretch"
                     Content="Button3" />
-                <ToggleButton Style="{DynamicResource ToggleButtonStyle1}" Content="toggle" />
+                <ToggleButton Content="[]" />
+                <ToggleButton Content="toggle" Style="{DynamicResource ToggleButtonStyle1}" />
             </StackPanel>
         </Border>
         <ListView
@@ -79,13 +80,21 @@
             <TabItem Header="All">
                 <TextBlock Text="all emails go here." />
             </TabItem>
-            <TabItem Style="{DynamicResource TabItemStyle1}" Header="Unread">
+            <TabItem Header="Unread" Style="{DynamicResource TabItemStyle1}">
                 <TextBlock Text="unread emails go here." />
             </TabItem>
-            <TabItem Header="Flagged">
+            <TabItem
+                Width="59"
+                Margin="0,-2,-2,0"
+                HorizontalAlignment="Right"
+                Header="Flagged">
                 <TextBlock Text="flagged emails go here." />
             </TabItem>
-            <TabItem Header="Urgent">
+            <TabItem
+                Height="22"
+                Margin="-2,-2,-2,0"
+                VerticalAlignment="Top"
+                Header="Urgent">
                 <TextBlock Text="urgent emails go here." />
             </TabItem>
         </TabControl>
