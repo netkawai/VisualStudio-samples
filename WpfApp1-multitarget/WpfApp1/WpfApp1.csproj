@@ -2,18 +2,51 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net48;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <StartupObject>WpfApp1.Program</StartupObject>
-    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETCoreApp'">
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.0.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CsWinRTEmbedded>true</CsWinRTEmbedded>
+    <CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
+    <CsWinRTIncludes>
+      Windows.Foundation;
+      Windows.UI.Color;
+      Windows.UI.IColors;
+      Windows.UI.ViewManagement.HandPreference;
+      Windows.UI.ViewManagement.IUISettings;
+      Windows.UI.ViewManagement.UIColorType;
+      Windows.UI.ViewManagement.UIElementType;
+      Windows.UI.ViewManagement.UISettings;
+    </CsWinRTIncludes>
+    <CsWinRTExcludes>
+      Windows.Foundation.Diagnostics;
+      Windows.Foundation.PropertyType;
+    </CsWinRTExcludes>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
+    <PackageReference Include="System.Runtime.WindowsRuntime" Version="4.7.0" />
+    <Reference Include="Windows">
+      <HintPath>$(SolutionDir)WinMD\Windows.WinMD</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Windows.Foundation.FoundationContract">
+      <HintPath>$(SolutionDir)WinMD\Windows.Foundation.FoundationContract.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Windows.Foundation.UniversalApiContract">
+      <HintPath>$(SolutionDir)WinMD\Windows.Foundation.UniversalApiContract.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
 </Project>

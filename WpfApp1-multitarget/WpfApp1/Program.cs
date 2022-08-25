@@ -10,6 +10,9 @@ namespace WpfApp1
         public static void Main()
         {
 
+            var isdark = SettingsHelper.IsDarkSystemTheme();
+            System.Diagnostics.Debug.WriteLine($"Dark:{isdark}");
+
             System.Windows.Application app = new System.Windows.Application();
             app.StartupUri = new System.Uri("MainWindow.xaml", System.UriKind.Relative);
             app.Run();
