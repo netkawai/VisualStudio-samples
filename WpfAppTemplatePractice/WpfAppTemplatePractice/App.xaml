@@ -2,8 +2,7 @@
     x:Class="WpfAppTemplatePractice.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:WpfAppTemplatePractice"
-    StartupUri="Window1.xaml">
+    xmlns:local="clr-namespace:WpfAppTemplatePractice">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

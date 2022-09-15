@@ -49,8 +49,7 @@
                     Width="*"
                     Binding="{Binding Note}"
                     Header="Notes"
-                    IsReadOnly="True"
-                    TextElement.Foreground="{Binding TextColor}" />
+                    IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
 
