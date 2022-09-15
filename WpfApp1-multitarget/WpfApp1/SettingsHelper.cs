@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using Windows.Foundation.Metadata;
 using Windows.UI.ViewManagement;
 using System.Windows.Media;
+
 namespace WpfApp1
 {
     public static class SettingsHelper

@@ -13,6 +13,10 @@ namespace WpfApp1
             var isdark = SettingsHelper.IsDarkSystemTheme();
             System.Diagnostics.Debug.WriteLine($"Dark:{isdark}");
 
+            var client = HttpHelper.CreateHttpClient();
+
+            client.GetAsync(new Uri("https://google.com")).GetAwaiter().GetResult();
+
             System.Windows.Application app = new System.Windows.Application();
             app.StartupUri = new System.Uri("MainWindow.xaml", System.UriKind.Relative);
             app.Run();

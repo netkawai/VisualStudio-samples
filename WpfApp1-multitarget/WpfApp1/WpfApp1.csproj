@@ -2,18 +2,15 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net48;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0-windows10.0.19041.0</TargetFrameworks>
+	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <UseWPF>true</UseWPF>
     <StartupObject>WpfApp1.Program</StartupObject>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETCoreApp'">
-    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.0.0" />
-  </ItemGroup>
-
   <PropertyGroup>
     <CsWinRTEmbedded>true</CsWinRTEmbedded>
-    <CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
+    <CsWinRTWindowsMetadata>10.0.17763.0</CsWinRTWindowsMetadata>
     <CsWinRTIncludes>
       Windows.Foundation;
       Windows.UI.Color;
@@ -25,6 +22,7 @@
       Windows.UI.ViewManagement.UISettings;
     </CsWinRTIncludes>
     <CsWinRTExcludes>
+	  Microsoft.UI.Xaml.Interop;
       Windows.Foundation.Diagnostics;
       Windows.Foundation.PropertyType;
     </CsWinRTExcludes>
