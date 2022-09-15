@@ -8,9 +8,11 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
     Title="Margins, Padding and Alignment Sample"
     Width="800"
-    Height="450"
+    Height="601"
     mc:Ignorable="d">
     <StackPanel>
+
+        <Slider Style="{DynamicResource SliderStyle1}" />
         <Border
             Background="LightBlue"
             BorderBrush="Black"
@@ -98,5 +100,89 @@
                 <TextBlock Text="urgent emails go here." />
             </TabItem>
         </TabControl>
+        <TextBox
+            Width="120"
+            Style="{DynamicResource TextBoxStyle1}"
+            Text="TextBox"
+            TextWrapping="Wrap" />
+        <WrapPanel  HorizontalAlignment="Stretch">
+
+
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Content="A" />
+
+        </WrapPanel>
+
     </StackPanel>
 </Window>

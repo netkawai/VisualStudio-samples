@@ -20,13 +20,39 @@
             <ColumnDefinition Name="rightColumn" Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <TextBox
-            Grid.Column="0"
+        <DataGrid
+            Margin="10"
+            Padding="10"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Background="Aqua"
-            Text="TextBox"
-            TextWrapping="Wrap" />
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            AutoGenerateColumns="False"
+            Background="White"
+            BorderThickness="1"
+            GridLinesVisibility="All"
+            HorizontalScrollBarVisibility="Disabled"
+            ItemsSource="{Binding TestViewListItems}"
+            SelectionMode="Single"
+            SelectionUnit="Cell">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Name">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox
+                                VerticalAlignment="Center"
+                                Content="{Binding Label}"
+                                IsChecked="{Binding IsChecked}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Note}"
+                    Header="Notes"
+                    IsReadOnly="True"
+                    TextElement.Foreground="{Binding TextColor}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Expander
             Name="Expander"
