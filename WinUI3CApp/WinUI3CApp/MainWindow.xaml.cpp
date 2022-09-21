@@ -59,6 +59,27 @@ This is a test notification
         myButton().Content(box_value(L"Clicked"));
 
 
+        /*
+        we need to copy Registry for AMID
+            c# (Windows Community Toolkit)
+            Win32AppInfo win32AppInfo = null;
+
+            // If sparse
+            if (DesktopBridgeHelpers.HasIdentity())
+            {
+                _win32Aumid = new ManifestHelper().GetAumidFromPackageManifest();
+            }
+            else
+            {
+                win32AppInfo = Win32AppInfo.Get();
+                _win32Aumid = win32AppInfo.Aumid;
+            }
+
+            // Create and register activator
+            var activatorType = CreateAndRegisterActivator();
+        
+        */
+
         // Right now does not work, I am missing something (see WpfApp1 sample)
         create_toast();
     }
