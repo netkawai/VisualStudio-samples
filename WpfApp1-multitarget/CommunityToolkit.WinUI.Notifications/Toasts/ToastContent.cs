@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 #if WINDOWS_UWP
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
@@ -109,6 +110,7 @@ namespace CommunityToolkit.WinUI.Notifications
         public XmlDocument GetXml()
         {
             XmlDocument doc = new XmlDocument();
+            Debug.WriteLine(GetContent());
             doc.LoadXml(GetContent());
 
             return doc;

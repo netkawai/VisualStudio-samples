@@ -37,8 +37,6 @@ namespace WpfApp1
         {
 #if WINDOWS_UWP
             new CommunityToolkit.WinUI.Notifications.ToastContentBuilder()
-                .AddArgument("action", "viewConversation")
-                .AddArgument("conversationId", 9813)
                 .AddText("This is a test notification")
                 .Show(); 
             // Not seeing the Show() method? Make sure you have version 7.0, and if you're

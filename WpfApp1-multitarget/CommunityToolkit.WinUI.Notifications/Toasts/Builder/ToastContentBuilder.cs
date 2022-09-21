@@ -424,7 +424,10 @@ namespace CommunityToolkit.WinUI.Notifications
 #endif
         public void Show(CustomizeToast customize)
         {
-            var notif = new Windows.UI.Notifications.ToastNotification(GetToastContent().GetXml());
+            var doc = GetToastContent().GetXml();
+
+            var notif = new Windows.UI.Notifications.ToastNotification(doc);
+
             customize?.Invoke(notif);
 
             ToastNotificationManagerCompat.CreateToastNotifier().Show(notif);

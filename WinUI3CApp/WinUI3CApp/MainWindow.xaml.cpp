@@ -27,23 +27,15 @@ namespace winrt::WinUI3CApp::implementation
         std::wstring toastPayload
         {
             LR"(
-<toast>
-  <visual>
+    <toast>
+    <visual>
     <binding template='ToastGeneric'>
-      <text>)"
-        };
-        toastPayload += this_app_name;
-        toastPayload += LR"(
+      <text>
+This is a test notification
       </text>
     </binding>
   </visual>
-  <actions>
-    <action content='Call back )";
-        toastPayload += this_app_name;
-        toastPayload += LR"(
-' arguments='the_args' activationKind='Foreground' />
-  </actions>
-</toast>)";
+</toast>)" };
         xml.LoadXml(toastPayload);
 
         ToastNotification toast{ xml };
