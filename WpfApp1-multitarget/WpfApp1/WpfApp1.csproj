@@ -11,7 +11,6 @@
   <PropertyGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
-
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net472' or '$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
@@ -36,4 +35,26 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
+
+	<!-- Multi-target exe refer to multi-target class library does not work well.
+	I am not sure why  this appears:
+	Severity	Code	Description	Project	File	Line	Suppression State
+Error	NETSDK1149	CommunityToolkit.WinUI.Notifications.dll cannot be referenced because it uses built-in support for WinRT, which is no longer supported in .NET 5 and higher.  An updated version of the component supporting .NET 5 is needed. For more information, see https://aka.ms/netsdk1149	WpfApp1	C:\Program Files\dotnet\sdk\6.0.400\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.targets	1007	
+	-->
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">	
+	  <Reference Include="CommunityToolkit.WinUI.Notifications">
+	    <HintPath>..\CommunityToolkit.WinUI.Notifications\bin\Debug\net472\CommunityToolkit.WinUI.Notifications.dll</HintPath>
+	  </Reference>
+	 <Reference Include="System.ValueTuple">
+	  <HintPath>..\CommunityToolkit.WinUI.Notifications\bin\Debug\net472\System.ValueTuple.dll</HintPath>
+	 </Reference>	
+    </ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
+	 <Reference Include="CommunityToolkit.WinUI.Notifications">
+	  <HintPath>..\CommunityToolkit.WinUI.Notifications\bin\Debug\net6.0-windows10.0.19041.0\CommunityToolkit.WinUI.Notifications.dll</HintPath>
+	 </Reference>	
+    </ItemGroup>
+
+  
 </Project>

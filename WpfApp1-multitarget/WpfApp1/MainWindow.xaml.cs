@@ -32,5 +32,17 @@ namespace WpfApp1
             InitializeComponent();
             DataContext = this;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+#if WINDOWS_UWP
+            new CommunityToolkit.WinUI.Notifications.ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddArgument("conversationId", 9813)
+                .AddText("This is a test notification")
+                .Show(); 
+            // Not seeing the Show() method? Make sure you have version 7.0, and if you're
+#endif
+        }
     }
 }

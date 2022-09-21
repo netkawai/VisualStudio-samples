@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{A62B4081-3988-464E-B5CF-1A27B9DFA68A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4472388-06E5-438F-8538-BF207065AC3F} = {B4472388-06E5-438F-8538-BF207065AC3F}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityToolkit.WinUI.Notifications", "CommunityToolkit.WinUI.Notifications\CommunityToolkit.WinUI.Notifications.csproj", "{B4472388-06E5-438F-8538-BF207065AC3F}"
 EndProject
