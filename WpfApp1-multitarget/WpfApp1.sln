@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{A62B4081-3988-464E-B5CF-1A27B9DFA68A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityToolkit.WinUI.Notifications", "CommunityToolkit.WinUI.Notifications\CommunityToolkit.WinUI.Notifications.csproj", "{B4472388-06E5-438F-8538-BF207065AC3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{A62B4081-3988-464E-B5CF-1A27B9DFA68A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A62B4081-3988-464E-B5CF-1A27B9DFA68A}.Release|x64.ActiveCfg = Release|x64
 		{A62B4081-3988-464E-B5CF-1A27B9DFA68A}.Release|x64.Build.0 = Release|x64
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Debug|x64.Build.0 = Debug|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Release|x64.ActiveCfg = Release|Any CPU
+		{B4472388-06E5-438F-8538-BF207065AC3F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

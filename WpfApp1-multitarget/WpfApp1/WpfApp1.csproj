@@ -2,31 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net48;net6.0-windows10.0.19041.0</TargetFrameworks>
-	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetFrameworks>net472;net6.0-windows;net6.0-windows10.0.19041.0</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <StartupObject>WpfApp1.Program</StartupObject>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CsWinRTEmbedded>true</CsWinRTEmbedded>
-    <CsWinRTWindowsMetadata>10.0.17763.0</CsWinRTWindowsMetadata>
-    <CsWinRTIncludes>
-      Windows.Foundation;
-      Windows.UI.Color;
-      Windows.UI.IColors;
-      Windows.UI.ViewManagement.HandPreference;
-      Windows.UI.ViewManagement.IUISettings;
-      Windows.UI.ViewManagement.UIColorType;
-      Windows.UI.ViewManagement.UIElementType;
-      Windows.UI.ViewManagement.UISettings;
-    </CsWinRTIncludes>
-    <CsWinRTExcludes>
-	  Microsoft.UI.Xaml.Interop;
-      Windows.Foundation.Diagnostics;
-      Windows.Foundation.PropertyType;
-    </CsWinRTExcludes>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net472' or '$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
+    <DefineConstants>$(DefineConstants);WINDOWS_UWP</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">

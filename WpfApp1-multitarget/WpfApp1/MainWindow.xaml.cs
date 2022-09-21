@@ -20,9 +20,17 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string ThemeName { get; set; }
+
         public MainWindow()
         {
+            if (SettingsHelper.IsDarkSystemTheme())
+                ThemeName = "Dark";
+            else
+                ThemeName = "Light";
+
             InitializeComponent();
+            DataContext = this;
         }
     }
 }
