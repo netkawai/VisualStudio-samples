@@ -22,4 +22,7 @@
 #include <winrt/Microsoft.UI.Xaml.Navigation.h>
 #include <winrt/Microsoft.UI.Xaml.Shapes.h>
 #include <winrt/Microsoft.UI.Dispatching.h>
+#include <winrt/Windows.UI.Notifications.h>
+#include <winrt/Windows.UI.Notifications.Management.h>
+#include <winrt/Windows.Data.Xml.Dom.h>
 #include <wil/cppwinrt_helpers.h>
