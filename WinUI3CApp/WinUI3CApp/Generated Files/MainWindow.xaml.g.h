@@ -34,6 +34,15 @@ namespace winrt::WinUI3CApp::implementation
         {
             _myButton = value;
         }
+
+        ::winrt::Microsoft::UI::Xaml::Controls::TextBox OutputTextBox()
+        {
+            return _OutputTextBox;
+        }
+        void OutputTextBox(::winrt::Microsoft::UI::Xaml::Controls::TextBox value)
+        {
+            _OutputTextBox = value;
+        }
         
     protected:
         bool _contentLoaded{false};
@@ -42,6 +51,7 @@ namespace winrt::WinUI3CApp::implementation
         struct MainWindow_obj1_Bindings;
 
         ::winrt::Microsoft::UI::Xaml::Controls::Button _myButton{nullptr};
+        ::winrt::Microsoft::UI::Xaml::Controls::TextBox _OutputTextBox{nullptr};
     };
 }
 

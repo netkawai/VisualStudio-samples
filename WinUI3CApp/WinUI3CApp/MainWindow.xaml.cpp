@@ -8,6 +8,7 @@ using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 using namespace Windows::UI::Notifications;
 using namespace Windows::Data::Xml::Dom;
+using namespace Windows::Globalization;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -58,6 +59,11 @@ This is a test notification
     {
         myButton().Content(box_value(L"Clicked"));
 
+        Calendar calendar;
+
+        std::wstring_view strv = std::wstring_view(calendar.MonthAsSoloString());
+
+        OutputTextBox().Text(strv);
 
         /*
         we need to copy Registry for AMID

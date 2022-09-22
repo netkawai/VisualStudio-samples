@@ -50,6 +50,12 @@ namespace winrt::WinUI3CApp::implementation
                 });
             }
             break;
+        case 3:
+            {
+                auto targetElement = target.as<::winrt::Microsoft::UI::Xaml::Controls::TextBox>();
+                this->OutputTextBox(targetElement);
+            }
+            break;
         }
         _contentLoaded = true;
     }
