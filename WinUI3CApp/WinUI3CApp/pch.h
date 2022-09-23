@@ -26,4 +26,12 @@
 #include <winrt/Windows.UI.Notifications.Management.h>
 #include <winrt/Windows.Data.Xml.Dom.h>
 #include <winrt/Windows.Globalization.h>
+#include <winrt/Windows.Media.Ocr.h>
+#include <winrt/Windows.Storage.h>
+#include <winrt/Windows.Storage.Pickers.h>
+#include <winrt/Windows.Storage.Streams.h>
+#include <winrt/Windows.Graphics.Imaging.h>
 #include <wil/cppwinrt_helpers.h>
+
+// for FilePicker
+#include <shobjidl.h>
