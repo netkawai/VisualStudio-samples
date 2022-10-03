@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Style/ToggleButtonStyle.xaml" />
                 <ResourceDictionary Source="Style/SliderStyle.xaml" />
                 <ResourceDictionary Source="Style/TextBoxStyle.xaml" />
+                <ResourceDictionary Source="Style/DataGrid.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

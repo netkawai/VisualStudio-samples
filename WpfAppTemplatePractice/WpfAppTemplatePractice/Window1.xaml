@@ -20,7 +20,7 @@
             <ColumnDefinition Name="rightColumn" Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <DataGrid
+        <DataGrid Style="{DynamicResource DataGridStyle1}"
             Margin="10"
             Padding="10"
             HorizontalAlignment="Stretch"
@@ -32,8 +32,7 @@
             GridLinesVisibility="All"
             HorizontalScrollBarVisibility="Disabled"
             ItemsSource="{Binding TestViewListItems}"
-            SelectionMode="Single"
-            SelectionUnit="Cell">
+            SelectionMode="Single" UseLayoutRounding="True">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name">
                     <DataGridTemplateColumn.CellTemplate>
