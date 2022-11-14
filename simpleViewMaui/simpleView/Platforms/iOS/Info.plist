@@ -36,5 +36,24 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>  
+	    <string>Need BLE permission</string>  
+	    <key>NSBluetoothPeripheralUsageDescription</key>  
+	    <string>Need BLE permission</string>  
+	    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>  
+	    <string>Need Location permission</string>  
+	    <key>NSLocationAlwaysUsageDescription</key>  
+	    <string>Need Location permission</string>  
+	    <key>NSLocationWhenInUseUsageDescription</key>  
+	    <string>Need Location permission</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+		<string>fetch</string>	
+		<string>location</string>
+		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
+	</array>
+
 </dict>
 </plist>

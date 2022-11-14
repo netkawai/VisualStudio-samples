@@ -44,6 +44,8 @@ public static class MauiProgram
     static void RegisterServices(IServiceCollection s)
     {
         //builder.Logging.AddProvider(new SqliteLoggerProvider(LogLevel.Trace));
+        s.AddSingleton<SampleSqliteConnection>();
+
         s.AddScoped<BaseServices>();
         s.AddSingleton(TextToSpeech.Default);
         s.AddSingleton(FilePicker.Default);

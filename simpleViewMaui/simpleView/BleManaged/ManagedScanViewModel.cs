@@ -32,11 +32,11 @@ public class ManagedScanViewModel : ViewModel
             if (this.IsBusy)
             {
                 this.scanner.Stop();
-                logger.LogTrace("Stop Scan");
+                //logger.LogTrace("Stop Scan");
             }
             else
             {
-                logger.LogTrace("Start Scan");
+                //logger.LogTrace("Start Scan");
                 await this.scanner.Start(
 #if ANDROID
                     new AndroidScanConfig(
