@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>simpleView</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -23,6 +20,8 @@
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<TargetFramework>net6.0-ios</TargetFramework>
+		<UserSecretsId>a228082d-82ad-4d08-a622-0ab98629d999</UserSecretsId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -51,4 +50,46 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="BleClient\ServicePage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="BleClient\CharacteristicPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="BleClient\PeripheralPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="BleClient\ScanPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="BleManaged\ManagedPeripheralPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="BleManaged\ManagedScanPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="BlePerf\ClientPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Microsoft.Extensions.Configuration.UserSecrets" />
+	  <None Remove="Shiny.BluetoothLE" />
+	  <None Remove="Humanizer" />
+	  <None Remove="ReactiveUI.Fody" />
+	  <None Remove="Prism.DryIoc" />
+	  <None Remove="Prism.DryIoc.Maui" />
+	  <None Remove="ReactiveUI.Maui" />
+	  <None Remove="Shiny.Hosting.Maui" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+	  <PackageReference Include="Humanizer" Version="2.14.1" />
+	  <PackageReference Include="ReactiveUI.Fody" Version="18.3.1" />
+	  <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
+	  <PackageReference Include="ReactiveUI.Maui" Version="18.3.1" />
+	  <PackageReference Include="Shiny.BluetoothLE" Version="3.0.0-alpha-0399" />
+	  <PackageReference Include="Shiny.Hosting.Maui" Version="3.0.0-alpha-0399" />
+	</ItemGroup>
 </Project>
