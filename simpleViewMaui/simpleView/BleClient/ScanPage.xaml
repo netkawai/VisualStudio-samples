@@ -20,11 +20,10 @@
                     </DataTrigger>
                 </Button.Triggers>
             </Button>
-            <Entry Placeholder="Local Name" Keyboard="Text" Text="{Binding LocalName}" PropertyChanged="Entry_PropertyChanged" />
-            <Entry Placeholder="UUID" Keyboard="Text" Text="{Binding MacAddress}" PropertyChanged="Entry_PropertyChanged" />
-            <Entry Placeholder="CompanyId" Keyboard="Text" Text="{Binding CompanyId}" PropertyChanged="Entry_PropertyChanged" />
-            <RefreshView>
-            <CollectionView ItemsSource="{Binding FilteredPeripherals}"
+            <Entry Placeholder="Local Name" Keyboard="Text" Text="{Binding LocalName}"  />
+            <Entry Placeholder="UUID" Keyboard="Text" Text="{Binding MacAddress}"  />
+            <Entry Placeholder="CompanyId" Keyboard="Text" Text="{Binding CompanyId}"  />
+            <CollectionView ItemsSource="{Binding Peripherals}"
                             ItemSizingStrategy="MeasureFirstItem"
                             SelectedItem="{Binding SelectedPeripheral}"
                             SelectionMode="Single"
@@ -90,7 +89,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-                </RefreshView>
             <ActivityIndicator IsRunning="{Binding IsScanning}" />
         </StackLayout>
     </ContentPage.Content>

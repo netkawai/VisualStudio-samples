@@ -18,7 +18,6 @@ public class ScanViewModel : ViewModel
 
     public ScanViewModel(BaseServices services, IBleManager bleManager) : base(services)
     {
-        Peripherals.CollectionChanged += Peripherals_CollectionChanged;
 
         this.IsScanning = bleManager?.IsScanning ?? false;
 
@@ -75,7 +74,10 @@ public class ScanViewModel : ViewModel
                                 {
                                     // XF is not able to deal with an observablelist/addrange properly
                                     foreach (var item in list)
-                                        this.Peripherals.Add(item);
+                                    {
+                                        if(IsSatisfyFilter(item))
+                                            this.Peripherals.Add(item);
+                                    }
                                 }
                             },
                             ex => this.Alert(ex.ToString(), "ERROR")
@@ -85,21 +87,6 @@ public class ScanViewModel : ViewModel
         );
     }
 
-
-    public void UpdateFilter()
-    {
-
-        Application.Current.Dispatcher.DispatchAsync(() =>
-        {
-            FilteredPeripherals.Clear();
-
-            foreach (var p in Peripherals)
-            {
-                if (IsSatisfyFilter(p))
-                    FilteredPeripherals.Add(p);
-            }
-        });
-    }
 
     private bool IsSatisfyFilter(PeripheralItemViewModel p)
     {
@@ -125,20 +112,6 @@ public class ScanViewModel : ViewModel
         return true;
     }
 
-    private void Peripherals_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-    {
-        switch (e.Action)
-        {
-            case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
-                PeripheralItemViewModel p = (PeripheralItemViewModel)e.NewItems[0];
-                if (IsSatisfyFilter(p))
-                {
-                    FilteredPeripherals.Add(p);
-                }
-                break;
-
-        }
-    }
 
     public string LocalName { get; set; }
     public string MacAddress { get; set; }
@@ -147,9 +120,8 @@ public class ScanViewModel : ViewModel
     public ICommand NavToTest { get; }
     public ICommand ScanToggle { get; }
 
-    public ObservableCollection<PeripheralItemViewModel> FilteredPeripherals { get; } = new();
 
-    private ObservableCollection<PeripheralItemViewModel> Peripherals { get; } = new();
+    public ObservableCollection<PeripheralItemViewModel> Peripherals { get; } = new();
 
     [Reactive] public PeripheralItemViewModel? SelectedPeripheral { get; set; }
     [Reactive] public bool IsScanning { get; private set; }

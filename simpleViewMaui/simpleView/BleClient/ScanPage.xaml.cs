@@ -8,11 +8,4 @@ public partial class ScanPage : ContentPage
         this.InitializeComponent();
     }
 
-    void Entry_PropertyChanged(System.Object sender, System.ComponentModel.PropertyChangedEventArgs e)
-    {
-        if (BindingContext is ScanViewModel vm)
-        {
-            vm.UpdateFilter();
-        }
-    }
 }
