@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Input;
 using ReactiveUI;
@@ -17,6 +18,8 @@ public class ScanViewModel : ViewModel
 
     public ScanViewModel(BaseServices services, IBleManager bleManager) : base(services)
     {
+        Peripherals.CollectionChanged += Peripherals_CollectionChanged;
+
         this.IsScanning = bleManager?.IsScanning ?? false;
 
         this.WhenAnyValueSelected(x => x.SelectedPeripheral, async x =>
@@ -56,6 +59,7 @@ public class ScanViewModel : ViewModel
                                     if (peripheral == null)
                                         peripheral = list.FirstOrDefault(x => x.Equals(result.Peripheral));
 
+
                                     if (peripheral != null)
                                     {
                                         peripheral.Update(result);
@@ -82,9 +86,70 @@ public class ScanViewModel : ViewModel
     }
 
 
+    public void UpdateFilter()
+    {
+
+        Application.Current.Dispatcher.DispatchAsync(() =>
+        {
+            FilteredPeripherals.Clear();
+
+            foreach (var p in Peripherals)
+            {
+                if (IsSatisfyFilter(p))
+                    FilteredPeripherals.Add(p);
+            }
+        });
+    }
+
+    private bool IsSatisfyFilter(PeripheralItemViewModel p)
+    {
+        if (!string.IsNullOrEmpty(this.CompanyId))
+        {
+            var companyid = ushort.Parse(CompanyId, System.Globalization.NumberStyles.AllowHexSpecifier);
+            if (p.AdvertisementData?.ManufacturerData == null || p.AdvertisementData?.ManufacturerData.CompanyId != companyid)
+                return false;
+        }
+
+        if (!string.IsNullOrEmpty(this.LocalName))
+        {
+            if (string.IsNullOrEmpty(p.LocalName) || !p.LocalName.StartsWith(LocalName))
+                return false;
+        }
+
+        if (!string.IsNullOrEmpty(MacAddress))
+        {
+            if (string.IsNullOrEmpty(p.Uuid) || !p.Uuid.StartsWith(MacAddress))
+                return false;
+
+        }
+        return true;
+    }
+
+    private void Peripherals_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        switch (e.Action)
+        {
+            case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                PeripheralItemViewModel p = (PeripheralItemViewModel)e.NewItems[0];
+                if (IsSatisfyFilter(p))
+                {
+                    FilteredPeripherals.Add(p);
+                }
+                break;
+
+        }
+    }
+
+    public string LocalName { get; set; }
+    public string MacAddress { get; set; }
+    public string CompanyId { get; set; }
+
     public ICommand NavToTest { get; }
     public ICommand ScanToggle { get; }
-    public ObservableCollection<PeripheralItemViewModel> Peripherals { get; } = new();
+
+    public ObservableCollection<PeripheralItemViewModel> FilteredPeripherals { get; } = new();
+
+    private ObservableCollection<PeripheralItemViewModel> Peripherals { get; } = new();
 
     [Reactive] public PeripheralItemViewModel? SelectedPeripheral { get; set; }
     [Reactive] public bool IsScanning { get; private set; }

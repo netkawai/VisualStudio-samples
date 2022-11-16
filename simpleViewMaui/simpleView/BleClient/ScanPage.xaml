@@ -20,8 +20,11 @@
                     </DataTrigger>
                 </Button.Triggers>
             </Button>
-
-            <CollectionView ItemsSource="{Binding Peripherals}"
+            <Entry Placeholder="Local Name" Keyboard="Text" Text="{Binding LocalName}" PropertyChanged="Entry_PropertyChanged" />
+            <Entry Placeholder="UUID" Keyboard="Text" Text="{Binding MacAddress}" PropertyChanged="Entry_PropertyChanged" />
+            <Entry Placeholder="CompanyId" Keyboard="Text" Text="{Binding CompanyId}" PropertyChanged="Entry_PropertyChanged" />
+            <RefreshView>
+            <CollectionView ItemsSource="{Binding FilteredPeripherals}"
                             ItemSizingStrategy="MeasureFirstItem"
                             SelectedItem="{Binding SelectedPeripheral}"
                             SelectionMode="Single"
@@ -70,6 +73,7 @@
                                    Grid.Row="3"
                                    Grid.Column="0" />
 
+
 						    <Label Text="Peripheral Connected"
                                    IsVisible="{Binding IsConnected}"
                                    BackgroundColor="Yellow"
@@ -77,10 +81,16 @@
                                    HorizontalTextAlignment="Center"
                                    Grid.ColumnSpan="2"
                                    Grid.Row="4" />
+
+                            <Label Text="{Binding CompanyId, StringFormat='CompanyId: {0}'}"
+                                   Grid.Row="5"
+                                   Grid.Column="0" />
+
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+                </RefreshView>
             <ActivityIndicator IsRunning="{Binding IsScanning}" />
         </StackLayout>
     </ContentPage.Content>
