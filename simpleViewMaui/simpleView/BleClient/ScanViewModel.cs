@@ -75,8 +75,7 @@ public class ScanViewModel : ViewModel
                                     // XF is not able to deal with an observablelist/addrange properly
                                     foreach (var item in list)
                                     {
-                                        if(IsSatisfyFilter(item))
-                                            this.Peripherals.Add(item);
+                                        this.Peripherals.Add(item);
                                     }
                                 }
                             },
@@ -87,13 +86,27 @@ public class ScanViewModel : ViewModel
         );
     }
 
+    private void RefreshVisibilityResult()
+    {
+        foreach (var itemVM in Peripherals)
+        {
+            if (IsSatisfyFilter(itemVM))
+            {
+                itemVM.IsVisible = true;
+            }
+            else
+            {
+                itemVM.IsVisible = false;
+            }
+        }
+    }
 
     private bool IsSatisfyFilter(PeripheralItemViewModel p)
     {
         if (!string.IsNullOrEmpty(this.CompanyId))
         {
             var companyid = ushort.Parse(CompanyId, System.Globalization.NumberStyles.AllowHexSpecifier);
-            if (p.AdvertisementData?.ManufacturerData == null || p.AdvertisementData?.ManufacturerData.CompanyId != companyid)
+            if (p.CompanyId.HasValue && p.CompanyId != companyid)
                 return false;
         }
 
@@ -112,10 +125,39 @@ public class ScanViewModel : ViewModel
         return true;
     }
 
-
-    public string LocalName { get; set; }
-    public string MacAddress { get; set; }
-    public string CompanyId { get; set; }
+    public string _LocalName;
+    public string LocalName { get => _LocalName;
+        set
+        {
+            if (value != _LocalName)
+            {
+                _LocalName = value;
+                RefreshVisibilityResult();
+            }
+        }
+    }
+    public string _MacAddress;
+    public string MacAddress { get => _MacAddress;
+        set
+        {
+            if (value != _MacAddress)
+            {
+                _MacAddress = value;
+                RefreshVisibilityResult();
+            }
+        }
+    }
+    public string _CompanyId; 
+    public string CompanyId { get => _CompanyId;
+        set
+        {
+            if (value != _CompanyId)
+            {
+                _CompanyId = value;
+                RefreshVisibilityResult();
+            }
+        }
+    }
 
     public ICommand NavToTest { get; }
     public ICommand ScanToggle { get; }

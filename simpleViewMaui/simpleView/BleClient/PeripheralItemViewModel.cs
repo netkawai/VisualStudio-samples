@@ -11,11 +11,13 @@ public class PeripheralItemViewModel : ReactiveObject
     { this.Peripheral = peripheral; }
 
 
+    public bool IsVisible { get; set; } = true;
+
     public override bool Equals(object obj)
         => this.Peripheral.Equals(obj);
 
-    public IAdvertisementData AdvertisementData { get; private set; }
-    public IPeripheral Peripheral { get; }
+    private IAdvertisementData AdvertisementData;
+    public IPeripheral Peripheral { get; private set; }
     public string Uuid => this.Peripheral.Uuid;
 
     public string Name { get; private set; }
@@ -27,7 +29,7 @@ public class PeripheralItemViewModel : ReactiveObject
     public string LocalName { get; private set; }
     public int TxPower { get; private set; }
 
-    public string CompanyId => AdvertisementData?.ManufacturerData?.CompanyId.ToString("X") ?? "Unknown";
+    public ushort? CompanyId => AdvertisementData?.ManufacturerData?.CompanyId ?? null;
 
     public void Update(ScanResult result)
     {

@@ -30,7 +30,7 @@
                             VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="sample:PeripheralItemViewModel">
-                        <Grid>
+                        <Grid IsVisible="{Binding IsVisible}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
@@ -81,7 +81,7 @@
                                    Grid.ColumnSpan="2"
                                    Grid.Row="4" />
 
-                            <Label Text="{Binding CompanyId, StringFormat='CompanyId: {0}'}"
+                            <Label Text="{Binding CompanyId, StringFormat='CompanyId: 0x{0:X}'}"
                                    Grid.Row="5"
                                    Grid.Column="0" />
 
