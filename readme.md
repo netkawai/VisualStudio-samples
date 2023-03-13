@@ -19,7 +19,7 @@ https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-con
  This is fundamentally RyuCompiler + RyuJIT without legacy JIT. 
  When Microsoft introduced UWP which is a native app (not run on CLR), since many Microsoft developer are familiar with C#, so they decided to provide C# compiler(combined with JIT) can generate a machine native code. This is Windows-specific, UWP itself introduced totally different API, WinRT or UAP api (There are some similarity or accustom pattern, but different). I am not sure exact C# language version, but Most UWP use C# 7.3 (either .NETCore2 or .NET Framework based because of  Windows specific nature) Currently, Microsoft is abandoning UWP as platform, shift to MSIX-packaged desktop app. There is a possibility to deprecate or obsolete UWP app model. (Neither UI nor Resource API, but App model/rules for runtime broker)
 
-4. .NET 6 above or latest - C# Language 10.0 above - Unstable, New, Huge runtime libraries
+4. .NET 6 above or latest - C# Language 10.0 above - New, Huge runtime libraries, Not system-wide
  https://docs.microsoft.com/en-us/dotnet/api/?view=windowsdesktop-6.0
  https://docs.microsoft.com/en-us/windows/windows-app-sdk/api/winrt/microsoft.ui?view=windows-app-sdk-1.1
  https://docs.microsoft.com/en-us/windows/apps/develop/platform/csharp-winrt/
