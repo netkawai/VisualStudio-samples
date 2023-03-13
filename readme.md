@@ -7,7 +7,7 @@ This is oldest version supported as a part of Windows. Development tools became 
 If you want to develop with this, you need to turn on from Windows Feature.  
 There are still some 3rd party components relies on this version. Since this version covered already WinForm and WPF as UI toolkit. If you don't care asynchronous, it is ok.  
 
-2. .NET Framework 4.8 downward to 4.6.2 (CLR 4.0) - C# Language version 7.3 - Stable (Visual Studio run on this version)  
+2. .NET Framework 4.8 downward to 4.6.2 (CLR 4.0) - C# Language version 7.3 - System legacy stable (Visual Studio run on this version)  
 https://docs.microsoft.com/en-us/dotnet/api/?view=netframework-4.8  
 This is the most stable major version in Windows. Unfortunately, there are some different APIs between 4.6.2 to 4.7.2. Highly it depends on what functions you need.
 Except LTSC or IoT version, normal channel Windows get 4.8 automatically. most cases it works out of box. async and await only supported from this. It is super useful not to block UI thread.  
