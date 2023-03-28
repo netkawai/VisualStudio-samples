@@ -1,0 +1,458 @@
+﻿<UserControl x:Class="Globomantics.TeRex.Views.TeRexView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gui="http://globomantics.com/2019/ui/wpf"
+    xmlns:local="clr-namespace:Globomantics.TeRex.Views"
+    xmlns:models="clr-namespace:Globomantics.TeRex.Models">
+    <UserControl.DataContext>
+        <local:TeRexViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="Grid.Header" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{gui:ThemeResource ResourceKey=ContentForeground}" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style x:Key="Grid.Header.Numeric" BasedOn="{StaticResource Grid.Header}" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+        <Style x:Key="Grid.Footer.Numeric" BasedOn="{StaticResource Grid.Header.Numeric}" TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="7" />
+        </Style>
+
+        <Style x:Key="Grid.Input" BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="-1,0,0,0" />
+        </Style>
+
+        <Style x:Key="Grid.Input.Numeric" BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="-1,0,0,0" />
+        </Style>
+
+        <Style x:Key="Grid.Input.Numeric.Total" BasedOn="{StaticResource Grid.Input.Numeric}" TargetType="{x:Type TextBox}">
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <DataTemplate x:Key="TimeCardItemTemplate" DataType="{x:Type models:TimeCardItemViewModel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="180"
+                        SharedSizeGroup="Project" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition
+                        Width="Auto"
+                        SharedSizeGroup="Commands" />
+                </Grid.ColumnDefinitions>
+                <!--  Project  -->
+                <ComboBox
+                    Grid.Column="0"
+                    Padding="4"
+                    DisplayMemberPath="DisplayName"
+                    ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.Projects}"
+                    SelectedValue="{Binding ProjectId, Mode=TwoWay}"
+                    SelectedValuePath="Id" />
+                <!--  Day 1  -->
+                <TextBox
+                    Grid.Column="1"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day1Hours}" />
+                <!--  Day 2  -->
+                <TextBox
+                    Grid.Column="2"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day2Hours}" />
+                <!--  Day 3  -->
+                <TextBox
+                    Grid.Column="3"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day3Hours}" />
+                <!--  Day 4  -->
+                <TextBox
+                    Grid.Column="4"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day4Hours}" />
+                <!--  Day 5  -->
+                <TextBox
+                    Grid.Column="5"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day5Hours}" />
+                <!--  Day 6  -->
+                <TextBox
+                    Grid.Column="6"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day6Hours}" />
+                <!--  Day 7  -->
+                <TextBox
+                    Grid.Column="7"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Day7Hours}" />
+                <!--  Total  -->
+                <TextBox
+                    Grid.Column="8"
+                    Focusable="False"
+                    Style="{StaticResource Grid.Input.Numeric.Total}"
+                    Text="{Binding TotalHours}" />
+                <!--  Commands  -->
+                <StackPanel
+                    Grid.Column="9"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="-1,0,0,0"
+                        Padding="8,4"
+                        Command="{Binding Path=DataContext.DeleteTimeCardItemCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                        CommandParameter="{Binding}">
+                        <gui:XamlImage
+                            Width="16"
+                            Height="16"
+                            Template="{DynamicResource Icon_Delete}" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ExpenseItemTemplate" DataType="{x:Type models:ExpenseItemViewModel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="180"
+                        SharedSizeGroup="Project" />
+                    <ColumnDefinition
+                        Width="120"
+                        SharedSizeGroup="Type" />
+                    <ColumnDefinition />
+                    <ColumnDefinition
+                        Width="120"
+                        SharedSizeGroup="Amount" />
+                    <ColumnDefinition
+                        Width="Auto"
+                        SharedSizeGroup="Commands" />
+                </Grid.ColumnDefinitions>
+                <!--  Project  -->
+                <ComboBox
+                    Grid.Column="0"
+                    Padding="4"
+                    DisplayMemberPath="DisplayName"
+                    ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.Projects}"
+                    SelectedValue="{Binding ProjectId, Mode=TwoWay}"
+                    SelectedValuePath="Id" />
+                <!--  Type  -->
+                <ComboBox
+                    Grid.Column="1"
+                    Margin="-1,0,0,0"
+                    Padding="4"
+                    DisplayMemberPath="DisplayName"
+                    ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.ExpenseTypes}"
+                    SelectedValue="{Binding ExpenseTypeId, Mode=TwoWay}"
+                    SelectedValuePath="Id" />
+                <!--  Description  -->
+                <TextBox
+                    Grid.Column="2"
+                    Style="{StaticResource Grid.Input}"
+                    Text="{Binding Description}" />
+                <!--  Amount  -->
+                <TextBox
+                    Grid.Column="3"
+                    Style="{StaticResource Grid.Input.Numeric}"
+                    Text="{Binding Amount}" />
+                <!--  Commands  -->
+                <StackPanel
+                    Grid.Column="4"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="-1,0,0,0"
+                        Padding="8,4"
+                        Command="{Binding Path=DataContext.DeleteExpenseItemCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                        CommandParameter="{Binding}">
+                        <gui:XamlImage
+                            Width="16"
+                            Height="16"
+                            Template="{DynamicResource Icon_Delete}" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox
+            Grid.Row="0"
+            Margin="16,0,16,16"
+            Header="Time">
+            <Grid
+                Margin="16"
+                Grid.IsSharedSizeScope="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="180"
+                            SharedSizeGroup="Project" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition
+                            Width="Auto"
+                            SharedSizeGroup="Commands" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Style="{StaticResource Grid.Header}"
+                        Text="Project" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Sat" />
+                    <TextBlock
+                        Grid.Column="2"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Sun" />
+                    <TextBlock
+                        Grid.Column="3"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Mon" />
+                    <TextBlock
+                        Grid.Column="4"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Tue" />
+                    <TextBlock
+                        Grid.Column="5"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Wed" />
+                    <TextBlock
+                        Grid.Column="6"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Thu" />
+                    <TextBlock
+                        Grid.Column="7"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Fri" />
+                    <TextBlock
+                        Grid.Column="8"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Total" />
+                </Grid>
+                <ItemsControl
+                    Grid.Row="1"
+                    ItemTemplate="{StaticResource TimeCardItemTemplate}"
+                    ItemsSource="{Binding TimeCardItems}" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="180"
+                            SharedSizeGroup="Project" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition
+                            Width="Auto"
+                            SharedSizeGroup="Commands" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="1"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day1Total}" />
+                    <TextBlock
+                        Grid.Column="2"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day2Total}" />
+                    <TextBlock
+                        Grid.Column="3"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day3Total}" />
+                    <TextBlock
+                        Grid.Column="4"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day4Total}" />
+                    <TextBlock
+                        Grid.Column="5"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day5Total}" />
+                    <TextBlock
+                        Grid.Column="6"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day6Total}" />
+                    <TextBlock
+                        Grid.Column="7"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding Day7Total}" />
+                    <TextBlock
+                        Grid.Column="8"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding GrandTotal}" />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <StackPanel
+                        Margin="0,16,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <Button
+                            Padding="8,4"
+                            Command="{Binding AddTimeCardItemCommand}">
+                            <gui:XamlImage
+                                Width="16"
+                                Height="16"
+                                Template="{DynamicResource Icon_Add}" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox
+            Grid.Row="1"
+            Margin="16"
+            Header="Expenses">
+            <Grid
+                Margin="16"
+                Grid.IsSharedSizeScope="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="180"
+                            SharedSizeGroup="Project" />
+                        <ColumnDefinition
+                            Width="120"
+                            SharedSizeGroup="Type" />
+                        <ColumnDefinition />
+                        <ColumnDefinition
+                            Width="120"
+                            SharedSizeGroup="Amount" />
+                        <ColumnDefinition
+                            Width="Auto"
+                            SharedSizeGroup="Commands" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Style="{StaticResource Grid.Header}"
+                        Text="Project" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Style="{StaticResource Grid.Header}"
+                        Text="Type" />
+                    <TextBlock
+                        Grid.Column="2"
+                        Style="{StaticResource Grid.Header}"
+                        Text="Description" />
+                    <TextBlock
+                        Grid.Column="3"
+                        Style="{StaticResource Grid.Header.Numeric}"
+                        Text="Amount" />
+                </Grid>
+                <ItemsControl
+                    Grid.Row="1"
+                    ItemTemplate="{StaticResource ExpenseItemTemplate}"
+                    ItemsSource="{Binding ExpenseItems}" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="180"
+                            SharedSizeGroup="Project" />
+                        <ColumnDefinition
+                            Width="120"
+                            SharedSizeGroup="Type" />
+                        <ColumnDefinition />
+                        <ColumnDefinition
+                            Width="120"
+                            SharedSizeGroup="Amount" />
+                        <ColumnDefinition
+                            Width="Auto"
+                            SharedSizeGroup="Commands" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="3"
+                        Style="{StaticResource Grid.Footer.Numeric}"
+                        Text="{Binding GrandExpenseTotal}" />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <StackPanel
+                        Margin="0,16,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <Button
+                            Padding="8,4"
+                            Command="{Binding AddExpenseItemCommand}">
+                            <gui:XamlImage
+                                Width="16"
+                                Height="16"
+                                Template="{DynamicResource Icon_Add}" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Grid
+            Grid.Row="2"
+            Margin="16">
+            <StackPanel
+                HorizontalAlignment="Left"
+                Orientation="Horizontal">
+                <CheckBox
+                    VerticalAlignment="Center"
+                    Content="I declare that the above is true and correct."
+                    IsChecked="{Binding IsSigned}" />
+                <TextBlock
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center"
+                    FontFamily="Mistral"
+                    FontSize="28"
+                    Foreground="{gui:ThemeResource ResourceKey=ControlFocusBorder}"
+                    Text="{Binding Signature}" />
+            </StackPanel>
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    Padding="8,4"
+                    gui:ButtonProperties.CornerRadius="4"
+                    Content="Save"
+                    FontWeight="SemiBold"
+                    IsDefault="True" />
+                <Button
+                    Margin="8,0,0,0"
+                    Padding="8,4"
+                    gui:ButtonProperties.CornerRadius="4"
+                    Content="Submit for Approval"
+                    FontWeight="SemiBold" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

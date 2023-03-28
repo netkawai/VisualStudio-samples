@@ -1,0 +1,196 @@
+﻿<Page
+    x:Class="WinUI2UWP.NavigationRootPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:WinUI2UWP"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="PropertyGridBackground" Color="#F9F9F9" />
+        <SolidColorBrush x:Key="PropertyGridBorderBrush" Color="#F0F0F0" />
+        <Thickness x:Key="PropertyGridBorderThickness">1</Thickness>
+
+    </Page.Resources>
+
+    <Grid Margin="5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.3*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.22*" />
+            <ColumnDefinition Width="0.78*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <muxc:MenuBar x:Name="manueBar">
+                <muxc:MenuBarItem Title="File" >
+                    <MenuFlyoutItem Text="New Test"/>
+                    <MenuFlyoutItem Text="Close"/>
+                    <MenuFlyoutItem Text="Save"/>
+                    <MenuFlyoutItem Text="Exit"/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="Wizard" >
+                    <MenuFlyoutItem Text="Bert Scan"/>
+                    <MenuFlyoutItem Text="Data Record"/>
+                </muxc:MenuBarItem>
+            </muxc:MenuBar>
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Margin="10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    FontWeight="Bold"
+                    Text="Components" />
+
+                <!--  Config Components  -->
+                <Button
+                    Grid.Column="1"
+                    Command="{Binding ModifyComponentsConfiguration}"
+                    Content="{StaticResource FontAwesomeConfigIcon}"
+                    Style="{StaticResource IconButton}" />
+
+                <!--  Add Component  -->
+                <Button
+                    Grid.Column="2"
+                    Command="{Binding AddComponent}"
+                    Content="{StaticResource FontAwesomeAddIcon}"
+                    Style="{StaticResource IconButton}" />
+
+
+            </Grid>
+            <StackPanel
+                Grid.Row="1"
+                Margin="10,0"
+                Orientation="Vertical" />
+
+            <ComboBox
+                Grid.Row="2"
+                Width="Auto"
+                Margin="10,5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                FontSize="{StaticResource FontSizeRegular}"
+                Foreground="{StaticResource IntrospectDarkBrush}"
+                ItemsSource="{Binding IESPList, Mode=TwoWay}"
+                SelectedItem="{Binding SelectedIESP, Mode=TwoWay}" />
+
+            <ListView Grid.Row="3" DataContext="{Binding CurrentComponentListViewModel}" />
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5,0,5,0"
+            Background="{StaticResource PropertyGridBackground}"
+            BorderBrush="{StaticResource PropertyGridBorderBrush}"
+            BorderThickness="{StaticResource PropertyGridBorderThickness}"
+            CornerRadius="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="48" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Background="{StaticResource IntrospectWhiteBrush}"
+                Orientation="Vertical">
+                <TextBlock
+                    Margin="20,10,0,10"
+                    FontWeight="Bold"
+                    Text="{Binding ComponentName}"
+                    ToolTipService.ToolTip="{Binding ComponentDescription}" />
+            </StackPanel>
+            <Border
+                Grid.Row="1"
+                Background="{StaticResource PropertyGridBackground}"
+                BorderBrush="{StaticResource PropertyGridBorderBrush}"
+                BorderThickness="{StaticResource PropertyGridBorderThickness}">
+                <Grid Background="{StaticResource IntrospectWhiteBrush}">
+                    <ItemsControl
+                        x:Name="_PropertyItemsControl"
+                        VerticalAlignment="Top"
+                        Background="{StaticResource IntrospectWhiteBrush}"
+                        IsTabStop="False"
+                        ItemsSource="{Binding PropertyItems}">
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:PropertyItemView />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                        <ItemsControl.Template>
+                            <ControlTemplate>
+                                <Border
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ScrollViewer
+                                        x:Name="ScrollBar"
+                                        Padding="{TemplateBinding Padding}"
+                                        HorizontalScrollBarVisibility="Disabled"
+                                        VerticalScrollBarVisibility="Auto">
+                                        <ItemsPresenter Margin="4,0,10,0" />
+                                    </ScrollViewer>
+                                </Border>
+                            </ControlTemplate>
+                        </ItemsControl.Template>
+                    </ItemsControl>
+
+
+                </Grid>
+            </Border>
+
+            <StackPanel
+                Grid.Row="3"
+                Margin="5,0,0,5"
+                Background="{StaticResource PropertyGridBackground}">
+
+                <TextBlock x:Name="ShortDescrption" Text="{Binding SelectedPropetyItem.PropertyName}" />
+                <TextBlock
+                    x:Name="DetailsDescrption"
+                    Text="{Binding SelectedPropetyItem.Description}"
+                    TextWrapping="Wrap">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="{Binding SelectedPropetyItem.Description}" />
+                    </ToolTipService.ToolTip>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <Border
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="0,5,0,0"
+            Background="#F9F9F9"
+            BorderBrush="#F0F0F0"
+            BorderThickness="1,1,1,1"
+            CornerRadius="5">
+            <ListView DataContext="{Binding CodeEditorListViewModel}" />
+        </Border>
+
+    </Grid>
+</Page>
