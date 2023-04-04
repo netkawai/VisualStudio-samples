@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="Window2" Height="353" Width="662">
     <Grid>
+        <!--
+
         <DocumentViewer x:Name="documentViewer1">
             <FixedDocument>
                 <PageContent>
+-->
                     <!-- 7" x 9" page -->
+            <!--
                     <FixedPage Width="672" Height="864">
                         <StackPanel Orientation="Vertical" FixedPage.Left="280" FixedPage.Top="150">
                             <Label FontFamily="Arial" FontWeight="Bold" FontSize="18" Content="Jane Eyre" HorizontalAlignment="Center"/>
@@ -33,5 +37,6 @@
                 </PageContent>
             </FixedDocument>
         </DocumentViewer>
+        -->
     </Grid>
 </Window>

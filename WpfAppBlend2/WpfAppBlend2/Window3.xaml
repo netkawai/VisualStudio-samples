@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppBlend2"
         mc:Ignorable="d"
-        Title="Window3" Height="396" Width="500">
+        Title="Window3" Height="455" Width="640">
     <Grid>
         <DockPanel LastChildFill="False">
             <Menu HorizontalAlignment="Stretch" DockPanel.Dock="Top" >
@@ -62,12 +62,19 @@
             </Border>
             <!-- When the mouse pointer is over this Border -->
             <!-- the selected cursor type is shown -->
-            <Border Name="DisplayArea" Height="250" Width="400"
+            <Border Name="DisplayArea" Height="130" Width="400"
           Margin="20" Background="AliceBlue">
                 <Label HorizontalAlignment="Center">
                     Move Mouse Pointer Over This Area
                 </Label>
             </Border>
+            <ListView Height="161" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
 
     </Grid>

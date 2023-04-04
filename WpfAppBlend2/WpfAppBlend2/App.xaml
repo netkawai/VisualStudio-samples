@@ -11,10 +11,10 @@
                 <ResourceDictionary Source="/ComboBoxStyle.xaml" />
                 <ResourceDictionary Source="/GridDataTemplate.xaml" />
                 <ResourceDictionary Source="/TextBoxStyle.xaml" />
-                <ResourceDictionary Source="/TextBoxStyleOrig.xaml"/>
-                <ResourceDictionary Source="Themes/Generic2.xaml"/>
-                <ResourceDictionary Source="Themes/Generic3.xaml"/>
-                <ResourceDictionary Source="/ComboBoxStyleOrig.xaml"/>
+                <ResourceDictionary Source="/TextBoxStyleOrig.xaml" />
+                <ResourceDictionary Source="Themes/Generic2.xaml" />
+                <ResourceDictionary Source="Themes/Generic3.xaml" />
+                <ResourceDictionary Source="/ComboBoxStyleOrig.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

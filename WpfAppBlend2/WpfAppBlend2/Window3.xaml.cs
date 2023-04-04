@@ -121,7 +121,7 @@ namespace WpfAppBlend2
                         DisplayArea.Cursor = Cursors.Wait;
                         break;
                     case "Custom":
-                        DisplayArea.Cursor = CustomCursor;
+                        //DisplayArea.Cursor = CustomCursor;
                         break;
                     default:
                         break;

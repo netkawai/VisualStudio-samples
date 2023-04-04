@@ -12,9 +12,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid
-                            Grid.Row="2"
-                            Background="{x:Static SystemColors.WindowBrush}">
+                        <Grid Grid.Row="2" Background="{x:Static SystemColors.WindowBrush}">
                             <ItemsControl
                                 x:Name="PART_PropertyItemsControl"
                                 VerticalAlignment="Top"
@@ -50,9 +48,7 @@
                                             </ScrollViewer>
                                         </Border>
                                         <ControlTemplate.Triggers>
-                                            <DataTrigger
-                                                Binding="{Binding ShowHorizontalScrollBar, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyGrid}}"
-                                                Value="True">
+                                            <DataTrigger Binding="{Binding ShowHorizontalScrollBar, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyGrid}}" Value="True">
                                                 <Setter TargetName="ScrollBar" Property="HorizontalScrollBarVisibility" Value="Auto" />
                                             </DataTrigger>
                                         </ControlTemplate.Triggers>
